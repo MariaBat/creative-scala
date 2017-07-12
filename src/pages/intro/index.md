@@ -1,99 +1,54 @@
 # ΠΡΟΛΟΓΟΣ {-}
 
-Η δημιουργική Scala αναφέρεται σε προγραμματιστές που δεν έχουν προηγούμενη εμπειρία με την Scala.
-It is designed to give you a fun introduction to functional programming.
-We assume you have some very basic familiarity with another programming language but little or no experience with Scala or other functional languages.
+Η δημιουργική Scala αναφέρεται σε προγραμματιστές που δεν έχουν προηγούμενη εμπειρία με την Scala. Υποθέτουμε ότι έχετε μια πολύ βασική εξοικείωση με κάποια άλλη γλώσσα προγραμματισμού αλλά καθόλου ή λίγη εμπειρία με την Scala ή άλλες γλώσσες συναρτησιακού προγραμματισμού.
 
-We have three goals with this book:
+Σε αυτό το βιβλίο θέσαμε 3 στόχους:
 
-1. To give an introduction to functional programming so that you can calculate and reason about programs, and pick up and understand other introductory books on functional programming.
+1. Να δώσουμε μια εισαγωγή στον συναρτησιακό προγραμματισμό ώστε να χρησιμοποιήσετε και να εξοικειωθείτε με προγράμματα, και να ξεκινήσετε και καταλάβετε άλλα εισαγωγικά βιβλία σχετικά με τον συναρτησιακό προγραμματισμό.
 
-2. To teach you enough Scala that you can explore your own interests in and using Scala.
+2. Να σας διδάξουμε αρκετή Scala ώστε να μπορέσετε να εξερευνήσετε και δικά σας ενδιαφέροντα χρησιμοποιώντας την.
 
-3. To present all this in a fun, gentle, and interesting way via two-dimensional computer graphics.
+3. Να παρουσιάσουμε όλα αυτά με διασκεδαστικό, ήπιο και ενδιαφέρον τρόπο μέσω δυσδιάστατων γραφικών.
 
-Our motivation comes from our own experience learning programming, studying functional programming, and teaching Scala to commercial developers.
+Ως κίνητρο είχαμε τις δικές μας εμπειρίες εκμάθησης προγραμματισμού, μελέτης συναρτησιακού προγραμματισμού και διδασκαλίας Scala σε εμπορικούς προγραμματιστές.
 
-Firstly, we believe that functional programming is the future.
-Since we're assuming you have little programming experience we won't go into the details of the differences between functional programming and object-oriented programming that you may have already experienced.
-Suffice to say there are different ways to think about and write computer programs, and we've chosen the functional programming approach.
+Πρώτα απ’ όλα, πιστεύουμε ότι ο συναρτησιακός προγραμματισμός είναι το μέλλον. Αφού υποθέτουμε ότι έχετε μικρή εμπειρία στον προγραμματισμό δεν θα μπούμε σε λεπτομέρειες για τις διαφορές με τον αντικειμενοστραφή προγραμματισμό, με τον οποίο μπορεί να έχετε ήδη μια εξοικείωση. Αρκεί να πούμε ότι υπάρχουν πολλοί διαφορετικοί τρόποι να σκεφτούμε και να γράψουμε προγράμματα και εμείς επιλέξαμε την προσέγγιση του συναρτησιακού προγραμματισμού.
 
-The reason for chosing functional programming are more interesting.
-It's common to teach programming by what we call the "bag of syntax" approach.
-In this approach a programming language is taught a collection of syntactical features (variables, for loops, while loops, methods) and students are left to figure out on their own when to use each feature.
-We've seen this method fail both when we were undergraduates learning programming, and as postgraduates teaching programming, as students simply have no systematic way to break down a problem and turn it into code.
-The result is that many students dropped out due to the poor quality of teaching.
-The students that remained tended to, like us, already have extensive programming experience.
+Οι λόγοι όμως που χρησιμοποιήσαμε συναρτησιακό προγραμματισμό είναι λίγο πιο ενδιαφέροντες. Η διδασκαλία προγραμματισμού με την προσέγγιση “bag of syntax” είναι πολύ κοινή. Σε αυτή την περίπτωση μια γλώσσα προγραμματισμού διδάσκεται ως μια συλλογή συντακτικών στοιχείων (μεταβλητές, βρόχοι for και while, μέθοδοι) και οι μαθητές προσπαθούν να καταλάβουν μόνοι τους πότε να χρησιμοποιήσουν το κάθε στοιχείο. Έχουμε δει αυτή τη μέθοδο να αποτυγχάνει, όταν  ήμασταν οι ίδιοι φοιτητές αλλά και αργότερα καθώς διδάσκαμε προγραμματισμό, αφού οι μαθητές δεν έχουν έναν συστηματικό τρόπο ώστε να διαχωρίζουν τα προβλήματα σε μικρά κομμάτια και να τα μετατρέπουν σε κώδικα. Το αποτέλεσμα ήταν πολλοί μαθητές να τα παρατάνε λόγω της κακής ποιότητας διδασκαλίας. Οι μαθητές οι οποίοι έμεναν είχαν, όπως και εμείς, ήδη αρκετή εμπειρία στον προγραμματισμό.
 
-Let's think back to primary school maths, specifically column addition.
-This is the basic way we're taught to add up numbers when they're too big to do in our head. 
-So, for example, adding up 266 + 385, we would line up the columns, carry the tens and so on.
-Now maybe maths wasn't your favorite subject but there are some important lessons here.
-The first is that we're given a systematic way to arrive at the solution.
-We can *calculate* the solution once we realise this is a problem that requires column addition.
-The second point is that we don't even have to understand why column addition works (though it helps) to use it. 
-So long as we follow the steps we'll get the correct answer.
+Ας θυμηθούμε τα μαθηματικά του δημοτικού και συγκεκριμένα την πρόσθεση σε στήλη. Αυτός ήταν ο βασικός τρόπος που μαθαίναμε να προσθέτουμε αριθμούς οι οποίοι είναι πολλοί μεγάλοι για να τους προσθέσουμε στο μυαλό μας. Έτσι, για παράδειγμα, αν έπρεπε να προσθέσουμε 266+385, θα βάζαμε τους αριθμούς τον έναν κάτω από τον άλλο, θα υπολογίζαμε τα κρατούμενα και ούτω καθεξής. Μπορεί τα μαθηματικά να μην ήταν το αγαπημένο σας μάθημα αλλά αυτή η εμπειρία μπορεί να μας διδάξει μερικά πράγματα. Πρώτον, μας δίνονταν ένας συστηματικός τρόπος για να φτάσουμε στην λύση. Δεύτερον, δεν χρειάζονταν να καταλάβουμε γιατί αυτός ο τρόπος λειτουργεί (παρόλο που βοηθάει) ώστε να τον χρησιμοποιήσουμε. Αν ακλουθούσαμε τα βήματα θα φτάναμε στην σωστή απάντηση.
 
-The remarkable thing about functional programming is that it works like column addition.
-We have recipes that are guaranteed to give us the correct answer if we follow them correctly.
-We call this *calculating* a program.
-This is not to say that programming is without creativity, but the challenge is to understand the structure of the problem and once we've done that the recipe we should use follows immediately.
-The code itself is not the interesting part.
+Αυτό που είναι αξιοθαύμαστο στον συναρτησιακό προγραμματισμό είναι ότι λειτουργεί ακριβώς όπως η πρόσθεση σε στήλη. Έχουμε συνταγές που εγγυώνται ότι θα μας δώσουν την σωστή απάντηση αν τις ακολουθήσουμε σωστά. Αυτό το αποκαλούμε υπολογιστικό πρόγραμμα. Αυτό δεν σημαίνει όμως ότι από τον προγραμματισμό λείπει η δημιουργικότητα, αλλά ότι η πρόκληση είναι το να καταλάβουμε την δομή του προγράμματος και μόλις το καταφέρουμε αυτό θα ακολουθήσει αμέσως και η συνταγή που πρέπει να χρησιμοποιήσουμε. Ο κώδικας από μόνος του δεν είναι το ενδιαφέρον μέρος.
 
-We're teaching functional programming using Scala, but not Scala itself.
-Scala is a language that is in demand right now.
-Scala programmers can relatively easily get jobs in a variety of industries, and this is an important motivation for learning Scala.
-One of the reasons for Scala's popularity is that is straddles object-oriented programming, the old way of programming, and functional programming.
-There is a lot of code written in an object-oriented style, and a lot of programmers who are used to that style.
-Scala gives a gentle way from object-oriented programming to functional programming.
-However this means Scala is a large language, and the interaction between the object-oriented and functional parts can be confusing.
-We believe that functional programming is much more effective than object-oriented programming, and for new programmers there is no need to add the confusion of learning object-oriented techniques at the same time.
-That can come later.
-Therefore this book is exclusively using the functional programming parts of Scala.
+Διδάσκουμε συναρτησιακό προγραμματισμό χρησιμοποιώντας Scala, αλλά δεν διδάσκουμε την ίδια την Scala. Η Scala είναι μια γλώσσα που βρίσκεται σε μεγάλη ζήτηση αυτή την εποχή. Όσοι προγραμματίζουν σε Scala μπορούν να βρουν δουλειά σχετικά εύκολα σε διάφορες επιχειρήσεις και έτσι αυτό αποτελεί ένα κίνητρο για να ασχοληθεί κανείς με αυτή. Ένας από τους λόγους που είναι τόσο δημοφιλής είναι επειδή συνδυάζει την αντικειμενοστρέφεια, τον παλιό τρόπο προγραμματισμού καθώς και τον συναρτησιακό προγραμματισμό. Υπάρχει πολύς κώδικας που είναι γραμμένος χρησιμοποιώντας αντικειμενοστρέφεια και πολλοί οι προγραμματιστές που έχουν συνηθίσει σ’ αυτόν τον τρόπο. Η Scala παρέχει έναν ήπιο τρόπο για να πάει κανείς από τον αντικειμενοστραφή προγραμματισμό στον συναρτησιακό. Αυτό όμως σημαίνει ότι η Scala είναι μια τεράστια γλώσσα και η αλληλεπίδραση μεταξύ των δυο προαναφερόμενων τρόπων προγραμματισμού μπορεί φανεί μπερδεμένη. Πιστεύουμε ότι ο συναρτησιακός προγραμματισμός είναι πολύ πιο αποτελεσματικός από τον αντικειμενοστραφή και ότι δεν χρειάζεται να προσθέσουμε περισσότερη σύγχυση στους νέους προγραμματιστές με την εκμάθηση των τεχνικών του την ίδια στιγμή που μαθαίνουν τον συναρτησιακό. Αυτό μπορεί να συμβεί αργότερα. Οπότε, αυτό το βιβλίο χρησιμοποιεί αποκλειστικά τεχνικές συναρτησιακού προγραμματισμού της Scala.
 
-Finally, we've chosen what we hope is a fun method to explore functional programming and Scala: computer graphics.
-There are many introductions to Scala, but the majority use examples that either relate to business or mathematics.
-For example, one of the first exercises in the very popular Coursera course is to implement sets via indicator functions.
-We feel if you're the type of person who likes directly working with these sort of concepts you already have plenty of content available.
-We want to target a different group: people who perhaps thought that maths was not for them but nonetheless have an interest or appreciation in the visual arts.
-We won't lie: there is maths in this book, but we hope we manage to motivate and indeed visualise the concepts in a way that makes them less intimidating.
+Τέλος, επιλέξαμε μια μέθοδο που ελπίζουμε ότι είναι διασκεδαστική ώστε να εξερευνήσουμε τον συναρτησιακό προγραμματισμό και την Scala: τα γραφικά υπολογιστών. Υπάρχουν πάρα πολλές εισαγωγές για την Scala, αλλά οι περισσότερες χρησιμοποιούν παραδείγματα που αναφέρονται σε επιχειρήσεις ή σε μαθηματικά. Για παράδειγμα, μια από τις πρώτες ασκήσεις στη δημοφιλή σειρά μαθημάτων Coursera, είναι να  δημιουργηθούν σύνολα χρησιμοποιώντας δείκτες. Αισθανόμαστε ότι αν σας αρέσει αυτού του είδους το περιεχόμενο τότε έχετε ήδη αρκετό υλικό στη διάθεσή σας. Εμείς θέλουμε να στοχεύσουμε σε μια διαφορετική κατηγορία ανθρώπων: σε αυτούς που πιστεύουν ότι τα μαθηματικά δεν τους ταιριάζουν αλλά τους ενδιαφέρουν ή έστω εκτιμούν τις οπτικές τέχνες. Δεν θα πούμε ψέματα: υπάρχουν μαθηματικά στο βιβλίο, αλλά ελπίζουμε ότι θα μπορέσουμε να σας παρακινήσουμε και να οπτικοποιήσουμε τις έννοιες έτσι ώστε να γίνουν λιγότερο τρομακτικές.
 
-Although this book will give you the basic mental model
-required to become competent with Scala,
-you won't finish knowing *everything* you need to be self-sufficient.
-For further advancement we recommend considering one of the many excellent
-Scala textbooks out there, including our own [Essential Scala][essential-scala].
+Ενώ το βιβλίο θα σας παρέχει το βασικό πνευματικό μοντέλο για να γίνετε ικανός στην χρήση της Scala, δεν θα γνωρίζετε τα πάντα ώστε να μπορείτε να εργάζεστε μόνος σας. Για να προχωρήσετε σε υψηλότερο επίπεδο σας προτείνουμε να δείτε ένα από τα πολλά υπέροχα εγχειρίδια για Scala, συμπεριλαμβανομένου και του δικού μας [Essential Scala][essential-scala].
 
-If you are working through the exercises on your own,
-we highly recommend joining our [Gitter chat room][underscore-gitter]
-to provide get help with the exercises and provide feedback on the book.
+Αν δουλεύετε τις εργασίες μόνος σας, συνιστούμε να μπείτε στο δικό μας [Gitter chat room][underscore-gitter] ώστε να βρείτε βοήθεια αλλά και να πείτε την γνώμη σας για το βιβλίο.
 
-The text of [Creative Scala][github-creative-scala] is open souce,
-as is the source code for the [Doodle][github-doodle]
-drawing library used in the exercises.
-You can grab the code from our [Github account][underscore-github].
-Contact us on Gitter or by email if you would like to contribute.
+Το κείμενο του βιβλίου [Creative Scala][github-creative-scala] είναι ανοιχτού κώδικα, όπως είναι και ο κώδικα της βιβλιοθήκης ζωγραφικής [Doodle][github-doodle]που χρησιμοποιήθηκε στις ασκήσεις. Μπορείτε να πάρετε τον κώδικα από τον λογαριασμό μας στο Github [Github account][underscore-github] Επικοινωνήστε μαζί μας με email ή μέσω του Gitter εάν θέλετε να συμβάλλετε.
 
-Thanks for downloading and happy creative programming!
+Ευχαριστούμε που κατεβάσατε το βιβλίο και ευχόμαστε καλό δημιουργικό προγραμματισμό!
 
----Dave and Noel
+---Dave και Noel
 
-## Notes on the Early Access Edition {-}
+## Σημειώσεις για την πρώιμη έκδοση {-}
 
 <div class="callout callout-danger">
-This is an *early access* release of Creative Scala.
-There may be typos and other errors in the text and examples.
+Αυτή είναι μια μη τελειωμένη έκδοση της Δημιουργικής Scala.
+Μπορεί να υπάρχουν ορθογραφικά και άλλα λάθη στο κείμενο και στα παραδείγματα.
 
-If you spot any mistakes or would like to provide feedback,
-please let us know via our [Gitter chat room][underscore-gitter]
-or by email:
+Εαν εντοπίσετε λάθη ή θα θέλατε να παρέχετε ανατροφοδότηση, παρακαλούμε να μας ενημερώσετε μέσω του [Gitter chat room][underscore-gitter]
+ή με email:
 
  - Dave Gurnell ([dave@underscore.io](mailto:dave@underscore.io))
  - Noel Welsh ([noel@underscore.io](mailto:noel@underscore.io))
 </div>
 
-## Acknowledgements {-}
+## Ευχαριστίες {-}
 
-Creative Scala was written by [Dave Gurnell][twitter-dave] and [Noel Welsh][twitter-noel]. Many thanks to [Richard Dallaway][twitter-richard], [Jonathan Ferguson][twitter-jono], and the team at [Underscore][underscore] for their invaluable contributions and extensive proof reading.
+Η δημιουργηκή Scala γράφτηκε από τον [Dave Gurnell][twitter-dave] και τον [Noel Welsh][twitter-noel]. Πολλά ευχαριστώ στους [Richard Dallaway][twitter-richard], [Jonathan Ferguson][twitter-jono], και στην ομάδα της [Underscore][underscore] για την ανεκτίμητη συνεισφορά τους και τις διορθώσεις που έκαναν.
 
-Thanks also to the many people who pointed out errors or made suggestions to improve the book: Neil Moore; Kelley Robinson, Julie Pitt, and the other ScalaBridge organizers; d43; Matt Kohl; all the students who worked through Creative Scala at ScalaBridge, at another event, or on their own; and the many awesome members of the Scala community who gave us comments and suggestions in person. Finally, we have large amount of gratitude for Bridgewater, and particularly Lauren Cipicchio, who perhaps unknowingly funded a good portion of the initial development of the second verison of the Creative Scala, and provided the first few rounds of students.
+Ευχαριστούμε επίσης τους ανθρώπους που μας υπέδειξαν λάθη ή έκαναν προτάσεις ώστε να βελτιωθεί το βιβλίο: Neil Moore; Kelley Robinson, Julie Pitt, και τους υπόλοιπους οργανωτές της ScalaBridge; d43; τον Matt Kohl; όλους τους μαθητές που εργάστηκαν για την Creative Scala στην ScalaBridge, σε μια άλλη εκδήλωση, ή από μόνοι τους; και στα πολλά και υπέροχα μέλη της κοινώτητας της Scala που μας έδωσαν τα σχόλιά τους και τις προτάσεις τους από κοντά. Τέλος, τρέφουμε πολύ μεγάλη ευγνωμοσύνη για την Bridgewater, και κυρίως για την Lauren Cipicchio, η οποία ίσως και ασυνείδητα χρηματοδότησε ένα μεγάλο κομμάτι της αρχικής ανάπτυξης της δεύτερης έκδοσης της Creative Scala, και παρείχε τους πρώτους μαθητές.
