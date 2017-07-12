@@ -1,6 +1,6 @@
-# Foreword {-}
+# ΠΡΟΛΟΓΟΣ {-}
 
-Creative Scala is aimed at developers who have no prior experience in Scala.
+Η δημιουργική Scala αναφέρεται σε προγραμματιστές που δεν έχουν προηγούμενη εμπειρία με την Scala.
 It is designed to give you a fun introduction to functional programming.
 We assume you have some very basic familiarity with another programming language but little or no experience with Scala or other functional languages.
 
