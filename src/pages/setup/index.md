@@ -1,10 +1,10 @@
-# Getting Started
+# Ξεκινώντας
 
-Our first step is to install the software we need to work with Creative Scala. We describe two pathways here:
+Το πρώτο μας βήμα είναι να εγκαταστήσουμε το λογισμικό που χρειαζόμαστε για να δουλέψουμε με την Creative Scala. Παρακάτω περιγράφουμε δύο τρόπους:
 
-1. Working with a text editor and a terminal. *We recommend this setup to people completely new to programming* as there are fewer moving parts.
-2. Working with IntelliJ IDEA. We recommend this setup to people who are used to using an IDE or are uncomfortable with the terminal.
+1. Μπορείτε να δουλέψετε με έναν text editor και ένα τερματικό. *Προτείνουμε αυτόν τον τρόπο σε αυτούς που είναι εντελώς νέοι στον προγραμματισμό* αφού υπάρχουν λιγότερα κινούμενα μέρη.
+2. Μπορείτε να δουλέψετε με το IntelliJ IDEA. Προτείνουμε αυτόν τον τρόπο σε αυτούς που έχουν συνηθίσει να χρησιμοποιούν ένα IDE ή δεν τους βολεύει το τερματικό.
 
-If you're an experienced developer with a setup you are happy with just keep the tools you know and adapt the instructions below as needed.
+Αν είστε ένας έμπειρος προγραμματιστής και είστε ήδη χαρούμενος με το λογισμικό που χρησιμοποιείτε, κρατήστε το και προσαρμόστε τις οδηγίες που δίνονται παρακάτω όπως χρειάζεται.
 
-If all this stuff is new to you, the rest of the chapter has some background.
+Εάν όλα αυτά είναι καινούρια για εσάς, το υπόλοιπο του κεφαλαίου δίνει ένα υπόβαθρο.
