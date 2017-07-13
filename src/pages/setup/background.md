@@ -1,93 +1,93 @@
-## Background
+## Ιστορικό υπόβαθρο
 
-This section gives some background information on some of the tools we'll be using.
-If you're an experienced developer a lot of this will be old hat, and you can skip it.
-If you're not, this will hopefully give some useful context to the software we'll be working with.
+Σε αυτή την ενότητα δίνονται πληροφορίες σχετικά με το ιστορικό υπόβαθρο κάποιων εργαλείων που θα χρησιμοποιήσουμε.
+Εάν είστε πεπειραμένος προγραμματιστής πολλά από τα παρακάτω θα σας φανούν γνωστά, οπότε μπορείτε να τα προσπεράσετε.
+Εάν δεν είστε, ελπίζουμε ότι θα σας παρέχουμε μερικές χρήσιμες πληροφορίες για το λογισμικό με το οποίο θα δουλέψουμε.
 
 
 
-### The Terminal
+### Το τερματικό
 
-Back when the world was young and computing was in its infancy, the common user interface of graphical windows, a cursor controlled by a mouse, and interaction by *direct manipulation* didn't exist.
-Instead users typed in commands at a device called a *terminal*.
-The direct manipulation interface is superior for most uses, but there are some cases for which the terminal or *command line* is preferrable.
-For example, if we wanted to work out how much space was used by all the files which names starting with `data` in Linux or OS X we can execute the command
+Παλιά όταν ο κόσμος ήταν νέος και οι υπολογιστές σε βρεφική ηλικία, η συνηθισμένη διεπιφάνεια χρήστη με τα παράθυρα με τα γραφικά, ο κέρσορας που ελέγχεται από το ποντίκι, και η αλληλεπίδραση με *άμεσο χειρισμό* δεν υπήρχαν.
+Αντί γι' αυτά οι χρήστες πληκτρολογούσαν εντολές σε μια συσκευή που ονομάζονταν *τερματικό*.
+Η χρήση διεπιφάνειας για άμεσο χειρισμό είναι πολύ καλύτερη στις περισσότερες περιπτώσεις, αλλά μερικές φορές το τερματικό ή η *γραμμή εντολών* προτιμάται.
+Για παράδειγμα, εάν θέλαμε να υπολογίσουμε πόσο χώρο καταλαμβάνουν τα αρχεία των οποίων το όνομα ξεκινάει από `data` στα Linux ή στο OS X θα μπορούσαμε να εκτελέσουμε την εντολή
 
 ```bash
 du -hs data*
 ```
 
-We can break this down into three components:
+Μπορούμε να χωρίσουμε αυτή τη γραμμή σε τρία στοιχεία προς εξέταση:
 
-- the command `du` means disk usage;
-- the flags `-hs` mean to print a human readable summary; and
-- the pattern `data*` means all the files whose names begin with `data`.
+- η εντολή `du` δείχνει τη χρήση δίσκου (disk usage);
+- η σημαία `-hs` εμφανίζει μια περίληψη που μπορεί να διαβαστεί από τους ανθρώπους και
+- το `data*` δίνει όλα τα αρχεία των οποίων το όνομα ξεκινάει από `data`.
 
-Doing this with a direct manipulation interface would be much more time consuming.
+Για να γίνει αυτό μέσω της διεπιφάνειας άμεσης διαχείρισης θα απαιτούνταν πολύ περισσότερος χρόνος.
  
-The command line has a steep learning curve, but the reward is an extremely powerful tool.
-Our usage of the terminal will be very limited, so don't worry if you find the example above intimidating!
+Η εκμάθηση της γραμμής εντολών αναπαρίσταται από μια απότομη καμπύλη, αλλά το αποτέλεσμα είναι η επιβράβευση με ένα πολύ δυνατό εργαλείο.
+Η χρήση του τερματικού στην περίπτωσή μας θα είναι πολύ περιορισμένη, γι' αυτό μην ανησυχείτε αν το παραπάνω παράδειγμα σας φάνηκε τρομακτικό!
 
 
 ### Text Editors
 
-You're probably used to writing documents in a word processor.
-A word processor allows us to write text and control the formatting of how it appears on the (increasingly rare) printed page.
-A word processor includes powerful commands, such as a spell checker and automatic table of contents generation, to make editing prose easier.
+Το πιο πιθανό είναι ότι είστε ήδη συνηθισμένοι στο να γράφετε έγγραφα σε κάποιον επεξεργαστή κειμένου.
+Ένας επεξεργαστής κειμένου μας δίνει την δυνατότητα να γράψουμε κείμενο και να ελέγξουμε τον τρόπο με τον οποίο αυτό εμφανίζεται αν το εκτυπώσουμε σε μια σελίδα (κάτι που πλέον συμβαίνει όλο και πιο αραιά).
+Ένας επεξεργαστής κειμένου έχει πολλές και δυνατές εντολές, όπως ορθογραφικό έλεγχο και αυτόματη δημιουργία περιεχομένων πίνακα, ώστε να κάνει την διαδικασία της επεξεργασίας ευκολότερη.
 
-A *text editor* is like a word processor for code.
-Whereas a word processor is concerned about visual presentation of text, a text editor has many programming specific functions.
-Typical examples include powerful tools to search and replace text, and the ability to quickly jump between the many different files that make up a project.
+Ένας *text editor* (κειμενογράφος) είναι ένας επεξεργαστής κειμένου αλλά για κώδικα.
+Ο επεξεργαστής κειμένου θεωρείται κατάλληλος για την οπτική παρουσίαση κειμένου, ενώ ένας text editor έχει διάφορες ειδικές λειτουργίες που τον κάνουν κατάλληλο για προγραμματισμό.
+Τυπικά παραδείγματα συμπεριλαμβάνουν στις δυνατότητές τους δυνατά εργαλεία αναζήτησης και αντικατάστασης κειμένου, καθώς και την ικανότητα να αναπηδήσει κανείς ανάμεσα στα διάφορα αρχεία που αποτελούν ένα project.
 
-Text editors date back to the days of terminals and perhaps surprisingly some of these tools are still in use.
-The two main ancient and glorious text editors that survive are called Emacs and Vim.
-They have very different approaches (except when they don't) and developers tend to use one or the other.
-I've been using Emacs for about twenty years, and thus I know in my bones that Emacs is the greatest of all possible text editors and Vim users are knuckle-draggers lumbered with poor taste and an inferior tool.
-Vim users no doubt think the same about me.
+Οι text editors υπάρχουν από όταν ξεκίνησαν τα τερματικά και ίσως απροσδόκητα κάποια από τα εργαλεία τους χρησιμοποιούνται ακόμη.
+Οι δύο βασικοί και ένδοξοι text editors που έχουν επιβιώσει μέχρι σήμερα είναι ο Emacs και ο Vim.
+Χρησιμοποιούν πολύ διαφορετικές προσεγγίσεις (όχι πάντα) και οι προγραμματιστές προτιμούν τον έναν ή τον άλλο.
+Εγώ χρησιμοποιώ τον Emacs εδώ και περίπου είκοσι χρόνια, και έτσι γνωρίζω βαθιά μέσα μου ότι ο Emacs είναι ο καλύτερος text editor από όλους και ότι όσοι προτιμούν τον Vim είναι κακόγουστοι και χρησιμοποιούν ένα υποδεέστερο εργαλείο.
+Χωρίς καμία αμφιβολία οι χρήστες του Vim σκέφτονται τα ίδια για μένα.
 
-If there is one thing that unites Vim and Emacs users it's the sure knowledge that new-fangled text editors like Sublime Text and Atom a bringing about the downfall of our civilisation.
-Nonetheless we recommend using Atom if you're new to this text editing game.
-Both Vim and Emacs were created before the common interfaces in use today were created, and using them requires learning a very different way of working.
-
-
-### The Compiler
-
-The code we write in a text editor is not in a form that a computer can run.
-A *compiler* translates it into something the computer can run.
-As it does this it performs certains checks on the code.
-If these checks don't pass the code won't be compiled and the compiler will print an error message instead.
-We'll learn more about what the compiler can check and what it can't in the rest of this book.
-
-When we said the compiler translates the code is something the computer can run, this is not the complete truth in the case of Scala.
-The output of the compiler is something called bytecode, and another program, called the Java Virtual Machine (JVM), runs this code[^complications].
+Εάν υπάρχει κάτι που ενώνει τους χρήστες του Vim και του Emacs είναι η σίγουρη γνώση ότι οι μοντέρνοι text editors όπως ο Sublime Text και ο Atom φέρνουν την πτώση του πολιτισμού μας.
+Παρόλα αυτά συνιστούμε την χρήση του Atom εάν είστε νέος στον χώρο του text editing.
+Ο Vim αλλά και ο Emacs δημιουργήθηκαν πριν τις γνωστές διεπιφάνειες χρηστών που υπάρχουν σήμερα, και για να τους χρησιμοποιήσει κανείς απαιτείται ένα πολύ διαφορετικός τρόπος εργασίας.
 
 
-### Integrated Development Environments
+### Ο μεταγλωττιστής (Compiler)
 
-Integrated development environments (IDEs) are an alternative approach that combine a text editor, a compiler, and several other programmer tools into a single program.
-Some people swear by IDEs, while some people prefer to use the terminal and a text editor.
-Our recommendation if you're new to programming is to take the terminal-and-text-editor approach.
-If you're already used to an IDE than IntelliJ IDEA is currently the best IDE for Scala development.
+Ο κώδικας που γράφουμε σε έναν text editor δεν είναι σε μορφή τέτοια που να μπορέσει να εκτελεστεί από έναν υπολογιστή.
+Ένας *μεταγλωττιστής* μεταφράζει τον κώδικα σε κάτι που να μπορεί να εκτελέσει ένας υπολογιστής.
+Κατά τη διάρκεια της μεταγλώττισης κάνει και κάποιους ελέγχους στον κώδικα.
+Εάν αυτοί οι έλεγχοι δεν περάσουν τότε ο κώδικας δεν θα μεταγλωττιστεί και θα εμφανιστεί ένα μήνυμα λάθους.
+Θα μάθουμε περισσότερα για το τι μπορεί να ελέγξει ένας μεταγλωττιστής και τι όχι στη συνέχεια αυτού του βιβλίου.
 
-
-### Version Control
-
-Version control is the final tool we'll use.
-A version control system is a program that allow us to keep a record of all the changes that have been made to a group of files.
-It's very useful for allowing multiple people to work on a project at the same time, and it ensures people don't accidentally overwrite each others changes.
-This is not a huge concern in Creative Scala, but it is good to get some exposure to version control now.
-
-The version control software we'll use is called Git.
-It's powerful but complex.
-The good news is we don't need to learn much about Git.
-Most of our use of Git will be via a website called Github, which allows people to share software that is stored in Git.
-We use Github to share the software used in Creative Scala.
+Όταν είπαμε ότι ο μεταγλωττιστής μεταφράζει τον κώδικα σε κάτι που μπορεί να εκτελέσει ένας υπολογιστής, αυτό δεν ήταν ολόκληρη η αλήθεια όσον αφορά την Scala.
+Το αποτέλεσμα του μεταγλωττιστή είναι κάτι που ονομάζεται bytecode, και ένα άλλο πρόγραμμα, που ονομάζεται Java Virtual Machine (JVM), εκτελεί αυτόν τον κώδικα [^επιπλοκές].
 
 
-### Onward!
+### Ενσωματωμένα περιβάλλοντα ανάπτυξης (Integrated Development Environments)
 
-Now we've got some background lets move on to installing the software we need to write Scala code.
+Τα ενσωματωμένα περιβάλλοντα ανάπτυξης (IDEs) αποτελούν μια εναλλακτική προσέγγιση η οποία περιλαμβάνει έναν text editor, έναν μεταγλωττιστή, και διάφορα άλλα προγραμματιστικά εργαλεία μέσα σε ένα μόνο πρόγραμμα.
+Κάποιο άνθρωποι παίρνουν όρκο για το πόσο καλά είναι τα IDEs, αλλά κάποιοι άλλοι προτιμούν να χρησιμοποιούν τερματικό και ένα text editor.
+Εάν είστε νέος στον προγραμματισμό προτείνουμε να προτιμήσετε το τερματικό και τον text editor.
+Εάν είστε ήδη συνηθισμένοι σε κάποιο IDE τότε το IntelliJ IDEA είναι η καλύτερη επιλογή για ανάπτυξη κώδικα σε Scala.
 
 
-[^complications]: This is not itself the entire truth! We usually run Scala code on the JVM, but we can actually compile Scala to three different formats. The first and most common is JVM bytecode. We can also compiled to Javascript, another programming language, which allows us to run Scala code in a web browser. Finally, Scala Native will compile Scala to something a computer *can* run directly without requiring the JVM.
+### Έλεγχος έκδοσης (Version Control)
+
+Ο έλεγχος έκδοσης είναι το τελευταίο εργαλείο που θα χρησιμοποιήσουμε.
+Ένα σύστημα ελέγχου έκδοσης είναι ένα πρόγραμμα το οποίο μας επιτρέπει να κρατήσουμε αρχείο όλων των αλλαγών που έγιναν σε μια ομάδα αρχείων.
+Είναι πολύ χρήσιμο αφού επιτρέπει την εργασία πολλών διαφορετικών ατόμων πάνω στο ίδιο project την ίδια στιγμή, και σιγουρεύει ότι κανένας από αυτούς δεν θα διαγράψει κατά λάθος αλλαγές που έκανε κάποιος άλλος.
+Αυτό δεν είναι κάτι που θα μας απασχολήσει πολύ στην Creative Scala, αλλά είναι καλό να εκτεθείτε από τώρα στην χρήση του.
+
+Το λογισμικό για έλεγχο έκδοσης που θα χρησιμοποιήσουμε ονομάζεται Git.
+Είναι πολύ δυνατό αλλά περίπλοκο.
+Τα καλά νέα είναι ότι δεν χρειάζεται να μάθουμε και πολλά για το Git.
+Θα χρησιμοποιούμε το Git περισσότερο μέσω μιας ιστοσελίδας που ονομάζεται Github, και επιτρέπει τον διαμοιρασμό λογισμικού που είναι αποθηκευμένο στο Git.
+Χρησιμοποιούμε το Github ώστε να μοιραστούμε το λογισμικό που χρησιμοποιήσαμε στην Creative Scala.
+
+
+### Συνεχίζοντας!
+
+Τώρα που αποκτήσαμε μερικές γνώσεις για το ιστορικό των εργαλείων ας προχωρήσουμε στην εγκατάσταση του λογισμικού που θα χρειαστούμε για να γράψουμε κώδικα σε  Scala.
+
+
+[^επιπλοκές]: Αυτά δεν ήταν όμως όλη η αλήθεια! Συνήθως εκτελούμε τον κώδικα της Scala στη JVM, αλλά στην πραγματικότητα μεταγλωττίζουμε την Scala σε τρεις διαφορετικές μορφές. Η πρώτη και πιο κοινή είναι η JVM bytecode. Μπορούμε επίσης να μεταγλωττίσουμε σε Javascript, που είναι μια άλλη γλώσσα προγραμματισμού, η οποία επιτρέπει την εκτέλεση κώδικα Scala σε περιηγητή διαδικτύου (web browser). Τέλος, η Scala Native μπορεί να  μεταγλωττίσει Scala σε κάτι που ένας υπολογιστείς *μπορεί* να εκτελέσει κατευθείαν χωρίς να χρειάζεται η JVM.
 
