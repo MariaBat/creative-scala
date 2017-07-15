@@ -1,34 +1,34 @@
-# Expressions, Values, and Types
+# Εκφράσεις, τιμές, και τύποι
 
-Scala programs have three fundamental building blocks: *expressions*, *values*, and *types*. In this section we explore these concepts.
+Τα προγράμματα της Scala αποτελούνται από τρία βασικά δομικά στοιχεία: *τις εκφράσεις*, *τις αξίες*, και *τους τύπους*. Η ενότητα αυτή είναι αφιερωμένη σ'αυτές τις τρεις έννοιες.
 
-Here's a very simple expression:
+Η παρακάτω είναι μια πολύ απλή έκφραση:
 
 ```tut:silent:book
 1 + 2
 ```
 
-An *expression* is a fragment of Scala code. We can write expressions in an a text editor, or on a piece of paper, or on a wall. You get the idea. 
+Μια *έκφραση* είναι ένα μικρό κομμάτι κώδικα Scala. Μπορούμε να γράψουμε εκφράσεις σε έναν text editor, ή σε ένα χαρτί, ή σε έναν τοίχο. Καταλαβαίνετε που το πάμε.
 
-Expressions are like writing. Just like writing must be read for it to have any effect on the world (and the reader has to understand the language the writing is written in), the computer must *run* an expression for it to have an effect. The result of running an expression is a *value*. Value's live in the computer's memory, in the same way that the result of reading some writing lives in the reader's head. We will also say expressions are *evaluated* or *executed* to describe the process of transforming them into values.
+Οι εκφράσεις είναι όπως το γράψιμο. Όπως το γράψιμο πρέπει να διαβαστεί από κάποιον ώστε να έχει αξία για τον κόσμο (και αυτός που το διαβάζει πρέπει να καταλαβαίνει την γλώσσα στην οποία αυτό είναι γραμμένο), έτσι και ο υπολογιστής πρέπει να *εκτελέσει* μια έκφραση ώστε αυτή να έχει κάποιο αποτέλεσμα. Το αποτέλεσμα της εκτέλεσης μιας έκφρασης είναι μια *τιμή*. Οι τιμές ζουν στην μνήμη του υπολογιστή, όπως ζει κάτι που θα διαβάσει κάποιος στο κεφάλι του. Ακόμη για να περιγράψουμε την διαδικασία μετατροπής των εκφράσεων σε τιμές πρέπει να πούμε ότι αυτές *εκτιμούνται* ή *εκτελούνται*.
 
-We can evaluate expressions immediately by writing them at the console and pressing "Enter" (or "Return"). Try it now.
+Μπορούμε να αξιολογήσουμε εκφράσεις αμέσως αν τις γράψουμε στην κονσόλα και μετά πατήσουμε "Enter" (ή "Return"). Δοκιμάστε το τώρα.
 
 ```tut:book
 1 + 2
 ```
 
-The console responds with the value the expression evaluates to, and the type of the expression.
+Η κονσόλα θα μας επιστρέψει την τιμή με την οποία εκτιμάται η έκφραση, καθώς και τον τύπος της.
 
-The expression `1 + 2` evaluates to the value `3`. We can write down the number three here on the page, but the real value is something stored in the computer's memory. In this case, it is a 32-bit integer represented in two's-complement. The meaning of "32-bit integer represented in two's-complement" is not important. I just mention it to emphasise the fact the computer's representation of the value `3` is the true value, not the numeral written here or by the console.
+Η έκφραση `1 + 2` εκτιμάται με την τιμή `3`. Μπορούμε να καταγράψουμε τον αριθμό τρία σε μια σελίδα,  αλλά η αληθινή τιμή είναι κάτι που αποθηκεύεται στην μνήμη του υπολογιστή. Στη συγκεκριμένη περίπτωση, είναι ένας ακέραιος 32-bit αριθμός που αναπαρίσταται με two's-complement. Το νόημα αυτής της αναπαράστασης του ακεραίου δεν είναι σημαντικό. Απλώς το αναφέραμε ώστε να δώσουμε έμφαση στο γεγονός ότι στην πραγματικότητα η αναπαράσταση της τιμής `3` για τον υπολογιστή, είναι η αληθινή του τιμή και όχι ο αριθμός που είναι γραμμένος εδώ ή στην κονσόλα.
 
-*Types* are the final piece of the puzzle. A type is anything we can determine about a program *without* running it. The expression `1 + 2` has the type `Int`, which means we should interpret the value the expression evaluates to as an integer. This also means we can write further expressions with the result of this expression, but these expressions must be operations make sense for integers. We could add, subtract, multiply, or divide, but we couldn't convert an integer to lowercase, for example.
+Οι *τύποι* είναι το τελευταίο κομμάτι του παζλ. Ένας τύπος είναι οτιδήποτε μπορούμε να συμπεράνουμε για το πρόγραμμα *χωρίς* να το τρέξουμε. Ο τύπος της έκφρασης `1 + 2` είναι `Int`, και από αυτό μπορούμε να καταλάβουμε ότι η τιμή της έκφρασης εκτιμάται ως ακέραιος αριθμός. Αυτό σημαίνει ότι επίσης μπορούμε να γράψουμε και άλλες εκφράσεις χρησιμοποιώντας το αποτέλεσμα αυτής της έκφρασης, αλλά θα πρέπει να είναι τέτοιες ώστε να έχει νόημα που χρησιμοποιούν ακεραίους. Μπορούμε να προσθέσουμε, να αφαιρέσουμε, να πολλαπλασιάσουμε ή να διαιρέσουμε, αλλά για παράδειγμα,δεν θα μπορούσαμε να μετατρέψουμε έναν ακέραιο σε κεφαλαίο.
 
-Types will often tell us how we should understand the value (the "stuff" in the computer's memory) that an expression evaluates to. Should we understand it as an integer or as a stream of points giving the current position of the mouse? The types will tell us. We can use types for other things, including things that don't have any representation at run-time. These uses are a bit more advanced than we'll get into here, but don't make the mistake of thinking that types correspond to value. Types only exist at compile-time in Scala. There is not necessarily any representation at runtime of the type of the expression that produced a given a value. 
+Οι τύποι πολλές φορές μας δείχνουν το πως πρέπει να εκλάβουμε μια τιμή (που υπάρχει μέσα στην μνήμη του υπολογιστή) η οποία ήταν το αποτέλεσμα μιας έκφρασης. Θα πρέπει να την εκλάβουμε ως ακέραιο ή ως μια σειρά σημείων που καθορίζουν την τωρινή θέση του ποντικιού; Οι τύποι μπορούν να μας απαντήσουν. Μπορούμε να χρησιμοποιήσουμε τύπους και για άλλα πράγματα, συμπεριλαμβανομένων και αυτών που δεν φαίνεται να έχουν κάποια συγκεκριμένη αναπαράσταση τύπου κατά τη διάρκεια της εκτέλεσης. Αυτές οι χρήσεις είναι λίγο πιο προχωρημένες για να ασχοληθούμε τώρα, αλλά μην κάνετε το λάθος να πιστέψετε ότι οι τύποι αντιστοιχούν σε τιμές. Οι τύποι στην Scala υπάρχουν μόνο κατά την διάρκεια της μεταγλώττισης. Η αντιστοίχιση ενός τύπου σε μια έκφραση που παρήγαγε μια συγκεκριμένη τιμή, δεν είναι απαραίτητη.
 
-Before a Scala program is run, it must be *compiled*. Compilation checks that a program makes sense. It must be syntactically correct, meaning it must be written according to the rules of Scala. For example `(1 + 2)` is syntactically correct, but `(1 + 2` is not. It must also *type check*, meaning the types must be correct for the operations we're trying to do. `1 + 2` type checks (we are adding integers), but `1.toUpperCase` does not (there is no concept of upper and lower case for numbers.)
+Πριν την εκτέλεση ενός προγράμματος Scala, πρέπει να γίνει η *μεταγλώττιση*. Η μεταγλώττιση ελέγχει αν ένα πρόγραμμα βγάζει νόημα. Πρέπει να είναι συντακτικά σωστό, κάτι που σημαίνει ότι πρέπει να είναι γραμμένο σύμφωνα με τους κανόνες της Scala. Για παράδειγμα το `(1 + 2)` είναι συντακτικά σωστό, αλλά το `(1 + 2` δεν  είναι. Επίσης στη μεταγλώττιση γίνεται και *έλεγχος τύπων*, που σημαίνει ότι οι τύποι πρέπει να είναι οι κατάλληλοι για αυτό που θέλουμε να κάνουμε. Το `1 + 2` περνάει από τον έλεγχο τύπου (προσθέτουμε ακέραιους), αλλά το `1.toUpperCase` δεν θα περνούσε  (δεν υπάρχει η έννοια των μικρών ή των κεφαλαίων στους αριθμούς.)
 
-Only programs that successfully compile can be run. We can think of compilation as being analogous to the rules of grammar in writing. The sentence "F$Rf  fjrmn;l df.fd"
-is syntactically incorrect in English. The arrangement of letters doesn't form any words. The sentence "dog fly a here no" is made out of valid words but their arrangement breaks the rules of grammar---analogous to the type checks that Scala performs.
+Μπορούν να εκτελεστούν μόνο τα προγράμματα που θα μεταγλωττιστούν επιτυχώς. Μπορούμε να σκεφτούμε την μεταγλώττιση σε αναλογία με τους κανόνες γραμματικής στον γραπτό λόγο. Η πρόταση "F$Rf  fjrmn;l df.fd"
+είναι συντακτικά σωστή στα Αγγλικά. Η σειρά με την οποία έχουν μπει τα γράμματα δεν σχηματίζει λέξεις. Η πρόταση "σκυλί πετάει ένα εδώ όχι" αποτελείται από  υπαρκτές λέξεις αλλά η σειρά τους καταπατάει τους κανόνες της γραμματικής---τα αντίστοιχα ισχύουν και για τους ελέγχους τύπων που εκτελεί η Scala.
 
-We will talk about *compile-time* as the time when a code is compiled, and *run-time* as the time when the code is run. 
+Θα αναφερόμαστε στον *χρόνο-μεταγλώττισης* ως τον χρόνο που χρειάζεται ένας κώδικας για να μεταγλωττιστεί, και στον *χρόνο-εκτέλεσης* ως τον χρόνο που χρειάζεται για να εκτελεστεί.
