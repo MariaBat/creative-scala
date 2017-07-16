@@ -1,28 +1,28 @@
-## Literal Expressions
+## Κυριολεκτικές εκφράσεις
 
-We'll now start to explore the various forms of expressions in Scala, starting with the simplest expressions *literals*. Here's a literal expression:
+Ήρθε η ώρα να εξερευνήσουμε τις διάφορες μορφές εκφράσεων στη Scala, ξεκινώντας από τις πιο απλές, τις *κυριολεκτικές*. Παρακάτω μπορείτε να δείτε ένα παράδειγμα:
 
 ```tut:book
 3
 ```
 
-A literal evaluates to "itself." How we write the expression and how the console prints the value are the same. Remember though, there is a difference between the written representation of a value and its actual representation in the computer's memory.
+Μια κυριολεκτική έκφραση εκτιμά τον ίδιο της τον εαυτό. Ο τρόπος με τον οποίο γράφουμε την έκφραση και ο τρόπος με τον οποίο εκτυπώνει η κονσόλα την τιμή της είναι ο ίδιος. Πρέπει να θυμάστε όμως, ότι υπάρχει μια διαφορά ανάμεσα στην γραπτή αναπαράσταση μιας τιμής και στην πραγματική αναπαράσταση της στην μνήμη του υπολογιστή.
 
-Scala has many different forms of literals. We've already seen `Int` literals. There is a different type, and a different literal syntax, for what are called *floating point numbers*. This corresponds to a computer's approximation of the real numbers. Here's an example:
+Στη Scala υπάρχουν πολλές διαφορετικές μορφές κυριολεκτικών εκφράσεων. Έχουμε ήδη δει το `Int`. Για τους *αριθμούς κινητής υποδιαστολής*, χρησιμοποιείται ένας διαφορετικός τύπος και διαφορετικό συντακτικό. Αυτού του είδους οι αριθμοί είναι η αναπαράσταση του πως αντιλαμβάνεται ο υπολογιστής τους αληθινούς αριθμούς. Δείτε ένα παράδειγμα:
 
 ```tut:book
 0.1
 ```
 
-As you can see, the type is called `Double`.
+Όπως μπορείτε να δείτε, αυτός ο τύπος ονομάζεται `Double`.
 
-Numbers are well and good, but what about text. Scala's `String` type represents a sequence of characters. We write literal strings by putting their contents in double quotes.
+Καλοί οι αριθμοί, αλλά τι γίνεται με το κείμενο; Ο τύπος `String` της Scala αναπαριστά μια σειρά χαρακτήρων. Μπορούμε να γράψουμε κυριολεκτικά strings βάζοντας το περιεχόμενό τους μέσα σε διπλά εισαγωγικά.
 
 ```tut:book
 "To be fond of dancing was a certain step towards falling in love."
 ```
 
-Sometimes we want to write strings that span several lines. We can do this by using triple double quotes, as below.
+Πολλές φορές θέλουμε να γράψουμε ένα string το οποίο θα χρειαστεί πολλές σειρές για να χωρέσει. Για να το πετύχουμε αυτό μπορούμε να χρησιμοποιήσουμε τριπλά εισαγωγικά, όπως φαίνεται παρακάτω.
 
 ```tut:book
 """
@@ -35,17 +35,17 @@ possession have rendered possible.
 """
 ```
 
-A `String` is a sequence of characters. Characters themselves have a type, `Char`, and character literals are written in single quotes.
+Ένα `String` είναι μια σειρά χαρακτήρων. Οι ίδιοι οι χαρακτήρες έχουν έναν δικό τους τύπο, τον `Char`, και γράφονται μέσα σε μονά εισαγωγικά.
 
 ```tut:book
 'a'
 ```
 
-Finally we'll look at the literal representations of the `Boolean` type, named after English logician [George Boolean](https://en.wikipedia.org/wiki/George_Boole). The fancy name just means a value that can be either `true` or `false`, and this indeed is how we write boolean literals.
+Τέλος, θα δούμε τις κυριολεκτικές αναπαραστάσεις του τύπου `Boolean`, ο οποίος πήρε το όνομά του από τον Άγγλο μαθηματικό [George Boolean](https://en.wikipedia.org/wiki/George_Boole). Αυτό το φανταχτερό όνομα σημαίνει απλώς ότι μια τιμή μπορεί να είναι είτε `true (σωστή)` είτε `false (λάθος)`, και αυτός είναι ο τρόπος με τον οποίο γράφουμε τα boolean κυριολεκτικά.
 
 ```tut:book
 true
 false
 ```
 
-With literal expressions we can create values, but we won't get very far if we can't somehow interact with the values we've created. We've seen a few examples of more complex expressions like `1 + 2`. In the next section we'll learn about objects and methods, which will allow to understand how this, and more interesting expressions, work.
+Με τις κυριολεκτικές εκφράσεις μπορούμε να δημιουργήσουμε τιμές, όμως δεν θα φτάσουμε και πολύ μακριά αν δεν μπορούμε με κάποιον τρόπο να αλληλεπιδράσουμε με αυτές τις τιμές. Είδαμε ήδη μερικά παραδείγματα πιο περίπλοκων εκφράσεων όπως το `1 + 2`. Στην επόμενη ενότητα θα μάθουμε για αντικείμενα και μεθόδους, ώστε να μπορέσουμε να κατανοήσουμε πως δουλεύουν τέτοιες και άλλου είδους πιο ενδιαφέρουσες εκφράσεις.
