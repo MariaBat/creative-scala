@@ -1,46 +1,46 @@
-## Types
+## Τυποι
 
-Now we can write more complex expressions we can talk a little more about types. 
+Τώρα που μπορούμε να γράψουμε πιο περίπλοκες εκφράσεις μπορούμε να μιλήσουμε λίγο παραπάνω για τους τύπους.
 
-One use of types is stopping us from calling methods that don't exist. The type of an expression tells the compiler what methods exist on the value it evaluates to. Our code won't compile if we try to call to a method that doesn't exist. Here are some simple examples.
+Μία χρήση των τύπων είναι να μας αποτρέπουν από την κλήση μεθόδων που δεν υπάρχουν. Ο τύπος μιας έκφρασης λέει στον μεταγλωττιστή ποιες μέθοδοι υπάρχουν για την τιμή με την οποία αξιολογείται. Αν προσπαθήσουμε να καλέσουμε μια μέθοδο που δεν υπάρχει, ο κώδικάς μας δεν θα μεταγλωττιστεί. Παρακάτω δίνονται μερικά απλά παραδείγματα.
 
 ```tut:fail:book
 "Brontë" / "Austen"
 1.take(2)
 ```
 
-It really is the type of the expression that determines what methods we can call, which we can demonstrate by calling methods on the result of more complex expressions.
+Πραγματικά, ο τύπος μια έκφρασης, είναι αυτός που καθορίζει ποιες μεθόδους μπορούμε να καλέσουμε, κάτι που μπορούμε να επιδείξουμε καλώντας μεθόδους στο αποτέλεσμα πιο περίπλοκων εκφράσεων.
 
 ```tut:fail:book
 (1 + 3).take(1)
 ```
 
-This process of *type checking* also applies to the parameter of methods.
+Η διαδικασία του *ελέγχου τύπου* ισχύει και για τις παραμέτρους των μεθόδων.
 
 ```tut:fail:book
 1.min("zero")
 ```
 
-Types are a property of expressions and thus exist at compile-time (as we have discussed before.) This means we can determine the type of expression even if evaluating it results in an error at run-time. For example, dividing an `Int` by zero causes a run-time error.
+Οι τύποι είναι ιδιοκτησία των εκφράσεων και άρα υπάρχουν μόνο κατά τον χρόνο μεταγλώττισης (όπως είχαμε αναφέρει και προηγουμένως). Αυτό σημαίνει ότι μπορούμε να καθορίσουμε τον τύπο μιας έκφρασης ακόμη και αν η αξιολόγησή της προκαλέσει λάθος κατά την διάρκεια εκτέλεσης (run-time error). Για παράδειγμα, η διαίρεση ενός ακεραίου με το μηδέν προκαλεί λάθος κατά την διάρκεια εκτέλεσης.
 
 ```tut:fail:book
 1 / 0
 ```
 
-The expression `1 / 0` still has a type, and we can get that type from the console as shown below.
+Η έκφραση `1 / 0` έχει τύπο, και  μπορούμε να πάρουμε αυτόν τον τύπο από την κονσόλα όπως φαίνεται παρακάτω.
 
 ```scala
 :type 1 / 0
 // Int
 ```
 
-We can also write a compound expression including a sub-expression that will fail at run-time.
+Ακόμη, μπορούμε να γράψουμε μια σύνθετη έκφραση η οποία συμπεριλαμβάνει μια υπό-έκφραση η οποία θα αποτύχει κατά την διάρκεια της εκτέλεσης.
 
 ```tut:fail:book
 (2 + (1 / 0) + 3)
 ```
 
-This expression also has a type.
+Ακόμη και αυτή η έκφραση έχει τύπο.
 
 ```scala
 :type (2 + (1 / 0) + 3)
