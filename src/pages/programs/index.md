@@ -1,13 +1,13 @@
-# Writing Larger Programs
+# Γράφοντας μεγαλύτερα προγράμματα
 
-We're getting to the point where it's inconvenient to type programs into the console. 
-In this chapter we'll learn about two tools for writing larger programs:
+Έχουμε φτάσει στο σημείο που το να γράφουμε τα προγράμματα στην κονσόλα έχει αρχίσει να μην είναι βολικό.
+Σε αυτό το κεφάλαιο θα μάθουμε για δύο εργαλεία για γράψιμο μεγαλύτερων προγραμμάτων:
 
-- saving programs to a file so we don't have to type code over and over again;
-- giving names to values so we can reuse them.
+- αποθήκευση προγραμμάτων σε αρχεία ώστε να μην χρειάζεται να γράφουμε κώδικά ξανά και ξανά,
+- απόδοση ονομάτων σε τιμές ώστε να μπορούμε να τις επαναχρησιμοποιήσουμε.
 
 <div class="callout callout-info">
-If you run the examples from the SBT console within Doodle they will just work. If not, you will need to start your code with the following imports to make Doodle available.
+Αν εκτελείτε τα προγράμματα στην κονσόλα SBT μέσα στο Doodle, τότε θα δουλέψουν. Αν όχι, θα πρέπει να ξεκινήσετε τον κώδικά σας με τα παρακάτω imports ώστε να κάνετε το Doodle διαθέσιμο.
 
 ```tut:silent
 import doodle.core._
