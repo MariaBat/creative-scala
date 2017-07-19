@@ -1,40 +1,40 @@
-## Packages and Imports
+## Πακέτα και Imports
 
-When we changed our code to compile we had to add many *import statements* to it.
-In this section we learn about them.
+Όταν αλλάξαμε τον κώδικά μας ώστε να μεταγλωττίζεται, χρειάστηκε να εισάγουμε πολλές δηλώσεις *import*.
+Σ'αυτή την ενότητα θα μάθουμε γι'αυτά.
 
-We've seen that one name can shadow another.
-This can cause problems in larger programs as many parts of a program many want to put a common name to different uses.
-We can create scopes to hide names from the outside, but we must still deal with names defined at the top-level.
+Είδαμε ότι ένα όνομα μπορεί να επισκιάσει ένα άλλο.
+Αυτό μπορεί να προκαλέσει προβλήματα σε μεγαλύτερα προγράμματα αφού πολλά μέρη τους μπορεί να θέλουν να χρησιμοποιήσουν το ίδιο όνομα αλλά για διαφορετικούς σκοπούς.
+Μπορούμε να δημιουργήσουμε εμβέλειες ώστε να κρύψουμε ονόματα από τον εξωτερικό κώδικα, αλλά θα πρέπει ακόμα να διαχειριζόμαστε τα ονόματα που ορίστηκαν στο top-level.
 
 
-We have the same problem in natural language.
-For example, if both your brother and friend were called "Ziggy" you would have to qualify which one you meant when you used their Ziggy.
-Perhaps you could tell from context, or perhaps your friend was "Ziggy S" and your brother was just "Ziggy".
+Το ίδιο πρόβλημα αντιμετωπίζουμε και στην φυσική γλώσσα.
+Για παράδειγμα, αν και ο αδερφός σας αλλά και ο φίλος σας ονομάζονταν "Ziggy" θα έπρεπε κάθε φορά που χρησιμοποιείτε αυτό το όνομα να δίνετε εξηγήσεις για το ποιόν εννοείτε.
+Ίσως θα μπορούσατε να καταλάβετε από τα συμφραζόμενα ή ίσως ο φίλος σας ήταν ο "Ziggy S" και ο αδερφός σας απλώς ο "Ziggy".
 
-In Scala we can use *packages* to organise names.
-A package creates a scope for names defined at the top-level.
-All top-level names within the same package are defined in the same scope.
-To bring names in a package into another scope we must *import* them.
+Στην Scala, για να οργανώσουμε ονόματα, μπορούμε να χρησιμοποιήσουμε *πακέτα (packages)*.
+Το πακέτο δημιουργεί μια εμβέλεια για ονόματα που έχουν οριστεί στο top-level.
+Όλα τα ονόματα στο top-level που βρίσκονται στο ίδιο πακέτο είναι ορισμένα μέσα στην ίδια εμβέλεια.
+Για να φέρουμε τα ονόματα που υπάρχουν μέσα σε ένα πακέτο σε μία άλλη εμβέλεια, θα πρέπει να τα κάνουμε *import*.
 
-Creating a package is simple: we write
+Η δημιουργία ενός πακέτου είναι απλή: απλώς γράφουμε
 
 ```scala
 package <name>
 ```
 
-at the top of the file, replace `<name>` with the name of our package.
+στο πάνω μέρος (??στην κορυφή??)του αρχείου και αντικαθιστούμε το `<name>` με το όνομα του πακέτου μας.
 
-When we want to use names defined in a package we use an `import` statement, specifying the package name followed by `_` for all names, or the just the name we want if we only want one or a few names.
+Όταν θέλουμε να χρησιμοποιήσουμε ονόματα που έχουν οριστεί μέσα σε ένα πακέτο, τότε χρησιμοποιούμε μια δήλωση `import`, διευκρινίζοντας το όνομα του πακέτου ακολουθούμενου από `_` αν θέλουμε όλα τα ονόματα του ή απλά το όνομα που θέλουμε αν θέλουμε ένα ή πολλά.
 
-Here's an example.
+Δείτε ένα παράδειγμα.
 
 <div class="info">
-You can't define packages in the console.
-To get the following code to work you must put the code within the package `example` into a file and compile it.
+Δεν μπορείτε να ορίσετε πακέτα στην κονσόλα.
+Για να κάνετε τον παρακάτω κώδικα να δουλέψει, θα πρέπει να τον βάλετε στο πακέτο `example` μέσα σε ένα αρχείο και να το μεταγλωττίσετε.
 </div>
 
-Let's start by defining some names within a package.
+Ας ξεκινήσουμε με τον ορισμό μερικών ονομάτων μέσα σε ένα πακέτο.
 
 ```scala
 package example
@@ -52,8 +52,8 @@ object Three {
 }
 ```
 
-Now to bring these names into scope we must import them.
-We could import just one name.
+Τώρα, για να βάλουμε αυτά τα ονόματα σε μία εμβέλεια θα πρέπει να τα κάνουμε import.
+Θα μπορούσαμε να κάνουμε import ένα μόνο όνομα.
 
 ```scala
 import example.One
@@ -61,7 +61,7 @@ import example.One
 One.one
 ```
 
-Or both `One` and `Two`.
+Ή δύο. Το `One` και το `Two`.
 
 ```scala
 import example.{One, Two}
@@ -69,7 +69,7 @@ import example.{One, Two}
 One.one + Two.two
 ```
 
-Or all the names in `example`.
+Ή και τα τρία που υπάρχουν στο `example`.
 
 ```scala
 import example._
@@ -77,8 +77,8 @@ import example._
 One.one + Two.two + Three.three
 ```
 
-In Scala we can also import just about anything that defines a scope, including objects.
-So the following code brings `one` into scope.
+Στην Scala μπορούμε βασικά να κάνουμε import οτιδήποτε ορίζει μια εμβέλεια, συμπεριλαμβανομένων και των αντικειμένων.
+Ο επόμενος κώδικας φέρνει το `one` σε εμβέλεια.
 
 ```scala
 import example.One._
@@ -86,15 +86,15 @@ import example.One._
 one
 ```
 
-### Package Organisation
+### Οργάνωση Πακέτων
 
-Packages stop top-level names colliding, but what about collisions between package names?
-It's common to organise packages in a hierarchy, which helps to avoid collisions.
-For example, in Doodle the package `core` is defined within the package `doodle`.
-When we use the statement
+Τα πακέτα αποτρέπουν την σύγκρουση των ονομάτων που υπάρχουν στο top-level names, αλλά τι γίνεται στην περίπτωση σύγκρουσης μεταξύ ονομάτων πακέτων;
+Η οργάνωση πακέτων σε μια ιεραρχία είναι μια πολύ κοινή τακτική ώστε να αποφευχθούν συγκρούσεις.
+Για παράδειγμα, στο Doodle το πακέτο `core` είναι ορισμένο μέσα στο πακέτο `doodle`.
+Όταν χρησιμοποιούμε την δήλωση
 
 ```tut:book:silent
 import doodle.core._
 ```
 
-we're indicating we want the package `core` within the package `doodle`, and not some other package that might be called `core`.
+υποδεικνύουμε ότι θέλουμε το πακέτο `core` μέσα στο πακέτο `doodle`, και όχι κάποιο άλλο πακέτο που μπορεί να λέγεται `core`.
