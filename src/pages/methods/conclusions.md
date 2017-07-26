@@ -1,8 +1,8 @@
-## Conclusions
+## Συμπεράσματα
 
-In this chapter we've learned how to write our own simple methods, and seen how we can use the substitution model of evaluation to understand method calls.
+Σ'αυτό το κεφάλαιο μάθαμε πως να γράφουμε τις δικές μας απλές μεθόδους, και είδαμε πως μπορούμε να χρησιμοποιήσουμε το μοντέλο αντικατάστασης για αξιολόγηση ώστε να κατανοήσουμε τις κλήσεις μεθόδων.
 
-We've seen that methods both abstract over expressions, in the same way as names, and also generalise over expressions, allowing us to represent a group of related expressions with one name.
+Είδαμε ότι οι μέθοδοι μπορούν να εφαρμόσουν την μέθοδο της αφαίρεσης στις εκφράσεις, με τον ίδιο τρόπο που το κάνουν και τα ονόματα, και μπορούν επίσης να γενικεύσουν εκφράσεις, επιτρέποντάς μας να συμπεριλάβουμε σε ένα group εκφράσεις σχετικές μεταξύ τους κάτω από ένα όνομα.
 
-We've written some interesting methods, but we've still have more repeated code than in desirable (think about the repeated calls to `box` and `circle` in the exercises.)
-In the next chapter we learn how we can generalise over this using structural recursion over the natural numbers.
+Γράψαμε αρκετές ενδιαφέρουσες μεθόδους αλλά ακόμα έχουμε πολύ περισσότερο κώδικα που επαναλαμβάνεται από όσο θα θέλαμε (σκεφτείτε τις επαναλαμβανόμενες κλήσεις του `box` και του `circle` στις ασκήσεις.)
+Στο επόμενο κεφάλαιο θα μάθουμε πως μπορούμε να γενικεύουμε πάνω στον κώδικα χρησιμοποιώντας δομημένη αναδρομή σε φυσικούς αριθμούς.
