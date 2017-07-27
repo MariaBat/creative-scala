@@ -1,15 +1,15 @@
-# Structural Recursion
+# Δομημένη Αναδρομή
 
-In this chapter we see our first major pattern for structuring computations: *structural recursion over the natural numbers*. That's quite a mouthful, so let's break it down:
+Σε αυτό το κεφάλαιο θα δούμε τη πρώτη μας πρότυπη δομή για δομημένους υπολογισμούς: την *δομημένη αναδρομή στους φυσικούς αριθμούς*. Αρκετά μεγάλη περιγραφή, οπότε ας την αναλύσουμε καλύτερα:
 
-- By a pattern, we mean a way of writing code that is useful in lots of different contexts. We'll encounter structural recursion in many different situations throughout this book. 
+- Με τον όρο πρότυπη δομή, εννοούμε έναν τρόπο για να γράφουμε κώδικα χρήσιμο για πολλές διαφορετικές περιπτώσεις. Την δομημένη αναδρομή θα την συναντήσουμε παρακάτω στο βιβλίο σε διάφορες περιπτώσεις.
 
-- By the natural numbers we mean the whole numbers 0, 1, 2, and upwards. 
+- Με τον όρο φυσικοί αριθμοί, εννοούμε τους θετικούς ακέραιους αριθμούς όπως το 0, 1, 2, κλπ.
 
-- By recursion we mean something that refers to itself. Structural recursion means a recursion that follows the structure of the data it is processing. If the data is recursive (refers to itself) then the structural recursion will also refer to itself. We'll see in more detail what this means in a moment.
+- Με τον όρο αναδρομή εννοούμε κάτι που αναφέρεται στον εαυτό του. Δομημένη αναδρομή είναι η αναδρομή η οποία ακολουθεί την δομή των δεδομένων που επεξεργάζεται. Αν τα δεδομένα αυτά είναι αναδρομικά (δηλαδή αναφέρονται στον εαυτό τους) τότε και η δομημένη αναδρομή θα αναφέρεται στον εαυτό της. Σε λίγο θα δούμε πιο αναλυτικά τι σημαίνει αυτό.
 
 <div class="callout callout-info">
-If you run the examples from the SBT console within Doodle they will just work. If not, you will need to start your code with the following imports to make Doodle available.
+Τα προγράμματα θα δουλέψουν εάν τα εκτελείτε στην κονσόλα SBT μέσα στο Doodle. Εάν όχι, τότε θα πρέπει να ξεκινήσετε τον κώδικά σας με τα παρακάτω imports ώστε να κάνετε το Doodle διαθέσιμο.
 
 ```tut:silent
 import doodle.core._
