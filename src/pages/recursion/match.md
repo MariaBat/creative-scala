@@ -1,6 +1,6 @@
-## Match Expressions
+## Εκφράσεις Match
 
-In the previous section we saw the `match` expression
+Στην προηγούμενη ενότητα είδαμε την παρακάτω έκφραση `match`
 
 ```scala
 count match {
@@ -9,16 +9,16 @@ count match {
 }
 ```
 
-How are we to understand this new kind of expression,
-and write our own?
-Let's break it down.
+Πώς μπορούμε να κατανοήσουμε αυτό το νέο είδος έκφρασης,
+και να γράψουμε και εμείς μια δική μας?
+Ας το αναλύσουμε.
 
-The very first to say is that `match` is indeed an expression,
-which means it evaluates to a value.
-If it didn't, the `boxes` method would not work!
+Το πρώτο που πρέπει να πούμε είναι ότι η `match` είναι όντως έκφραση,
+και άρα αξιολογείται με μια τιμή.
+Αν ο παραπάνω ισχυρισμός δεν ίσχυε, τότε η μέθοδος `boxes` δεν θα δούλευε!
 
-To understand what it evaluates to we need more detail.
-A `match` expression in general has the shape
+Για να καταλάβουμε πως αξιολογείται η match, πρέπει να μάθουμε περισσότερες λεπτομέρειες.
+Γενικώς, μια έκφραση `match` έχει το παρακάτω σχήμα
 
 ```scala
 <anExpression> match {
@@ -29,28 +29,28 @@ A `match` expression in general has the shape
 }
 ```
 
-`<anExpression>`, concretely `count` in the case above, is the expresssion that evaluates to the value we're matching against.
-The patterns `<pattern1>` and so on are matched against this value.
-So far we've seen two kinds of patterns:
+ένα`<anExpression>`, συγκεκριμένα το `count` για την παραπάνω περίπτωση, είναι μια έκφραση της οποίας η τιμή θα χρησιμοποιηθεί παρακάτω για σύγκριση.
+Το `<pattern1>` και τα υπόλοιπα patterns συγκρίνονται με αυτή την τιμή.
+Μέχρι τώρα έχουμε δει δύο είδη patterns:
 
- - a literal (as in `case 0`) which matches exactly the value that literal evaluates to; and
- - a wildcard (as in `case n`) which matches *anything*, and introduces a binding within the right-hand side expression.
+ - ένα κυριολεκτικό (όπως το `case 0`) το οποίο αντιστοιχίζεται με την ακριβή τιμή του κυριολεκτικού, και
+ - έναν μπαλαντέρ (όπως το `case n`) το οποίο αντιστοιχίζεται με *οτιδήποτε* άλλο, και εισάγει μια σύνδεση στο δεξί μέρος της έκφρασης.
 
-Finally, the right-hand side expressions, `<expression1>` and so on, are just expresssions like any other we've written so far.
-The entire `match` expression evaluates to the value of the right-hand side expression of the *first* pattern that matches.
-So when we call `boxes(0)` both patterns will match (because the wildcard matches anything), but because the literal pattern comes first the expression `Image.empty` is the one that is evaluated.
+Τέλος, οι εκφράσεις που βρίσκονται στην δεξιά μεριά, όπως η `<expression1>`, είναι απλώς εκφράσεις όπως πολλές άλλες που έχουμε γράψει.
+Ολόκληρη η έκφραση `match` αξιολογείται με την τιμή της δεξιάς έκφρασης του *πρώτου* pattern που μπορεί να αντιστοιχηθεί με την έκφραση προς σύγκριση.
+Έτσι, όταν καλούμε το `boxes(0)` και τα δύο patterns μπορούν αντιστοιχηθούν (αφού ο μπαλαντέρ αντιστοιχίζεται με οτιδήποτε), αλλά αφού είναι πρώτο το κυριολεκτικό pattern, θα αξιολογηθεί η έκφραση `Image.empty`.
 
-A `match` expression that checks for all possible cases is called an exhaustive match.
-If we can assume that `count` is always greater or equal to zero, the `match` in `boxes` is exhaustive.
+Μια έκφραση `match` που ελέγχει για όλες τις πιθανές περιπτώσεις καλείται εξαντλητική match (exhaustive match).
+Αν υποθέσουμε ότι το `count` είναι πάντα ίσο ή μεγαλύτερο από το μηδέν τότε η `match` στο `boxes` είναι εξαντλητική.
 
-Once we're comfortable with `match` expressions we need to look at the structure of the natural numbers before we can explain structural recursion over them.
+Αφού εξοικειωθούμε με τις εκφράσεις `match` και πριν εξηγήσουμε την δομημένη αναδρομή πρέπει να μελετήσουμε την δομή των φυσικών αριθμών.
 
 
-### Exercises {-}
+### Ασκήσεις {-}
 
-#### Guess the Result {-}
+#### Μαντέψτε το Αποτέλεσμα {-}
 
-Let's check our understanding of match by guessing what each of the following expressions evaluates to, and why.
+Ας ελέγξουμε το πόσο καλά κατανοούμε την match μαντεύοντας το αποτέλεσμα των παρακάτω εκφράσεων και το γιατί αξιολογούνται έτσι.
 
 ```tut:silent
 "abcd" match {
@@ -85,29 +85,29 @@ Let's check our understanding of match by guessing what each of the following ex
 
 <div class="solution">
 
-The first example evaluates to `2`, as the pattern `"abcd"` is the only match for the literal `"abcd"` amongst the patterns.
+Το πρώτο παράδειγμα αξιολογείται με `2`, αφού το pattern `"abcd"` είναι το μόνο που αντιστοιχίζεται με το κυριολεκτικό `"abcd"`.
 
-The second example evaluates to `"one"`, because the first matching case is the one that is evaluated.
+Το δεύτερο παράδειγμα αξιολογείται με `"one"`, αφού αξιολογείται η πρώτη περίπτωση η οποία αντιστοιχίζεται με την έκφραση προς σύγκριση.
 
-The third example evaluates to `2`, because `case n` defines a wildcard pattern that matches anything.
+Το τρίτο παράδειγμα αξιολογείται με `2`, αφού το `case n` ορίζει ένα pattern μπαλαντέρ το οποίο μπορεί να αντιστοιχηθεί με οτιδήποτε.
 
-The final example evaluates to `1` because the first matching case is evaluated.
+Το τελευταίο παράδειγμα αξιολογείται με `1` αφού αξιολογείται η πρώτη περίπτωση η οποία αντιστοιχίζεται με την έκφραση προς σύγκριση.
 </div>
 
-#### No Match {-}
+#### Δεν Υπάρχει Αντιστοίχιση {-}
 
-What happens if no pattern matches in a `match` expression?
-Take a guess, than right a `match` expression that fails to match and see if you managed to guess correctly.
-(At this point we have no reason to expect any particular behavior so any reasonable guess will do.)
+Τι γίνεται όμως αν κανένα pattern δεν μπορεί να αντιστοιχηθεί σε μια έκφραση `match`?
+Μαντέψτε! Βρείτε μια έκφραση `match` η οποία απέτυχε και δείτε αν μαντέψατε σωστά.
+(Σύμφωνα με αυτά που ξέρουμε ως τώρα δεν έχουμε κανέναν λόγο να περιμένουμε κάποια συγκεκριμένη συμπεριφορά οπότε οποιαδήποτε λογική υπόθεση είναι αποδεκτή.)
 
 <div class="solution">
-Here are three reasonable possibilities I can think of; perhaps you came up with something else?
+Παρακάτω μπορείτε να δείτε τρείς λογικές πιθανότητες που σκεφτήκαμε εμείς, αλλά ίσως εσείς σκεφτήκατε κάτι άλλο;
 
- - The expression could evaluate to some default, like `Image.empty` (but how should Scala pick the right default?)
- - The Scala compiler should just not let you write code like that.
- - The `match` expression will fail at runtime.
+ - Η έκφραση θα μπορούσε να αξιολογείται με κάτι προκαθορισμένο, όπως το `Image.empty` (όμως πώς θα ήξερε η Scala τι θα ήταν αυτό;)
+ - Ο μεταγλωττιστής της Scala δεν θα σας άφηνε να γράψετε τέτοιου είδους κώδικα.
+ - Η έκφραση `match` θα αποτύχει κατά την διάρκεια της εκτέλεσης.
 
-Here's a match expression that doesn't match.
+Παρακάτω μπορείτε να δείτε μια έκφραση match που θα αποτύχει.
 
 ```tut:fail:book
 2 match {
@@ -116,7 +116,7 @@ Here's a match expression that doesn't match.
 }
 ```
 
-The correct answer is one of the last two possibilities, failing to compile or failing at runtime.
-In this example we have an error at runtime.
-The exact answer depends on how Scala is configured (we can tell the compiler to refuse to compile matches that it can show are not exhaustive, but this is not the default behavior).
+Η σωστή απάντηση είναι μια από τις δύο τελευταίες, δηλαδή είτε να εμφανιστεί αποτυχία κατά την μεταγλώττιση είτε κατά την εκτέλεση.
+Στο παραπάνω παράδειγμα το πρόβλημα θα εμφανιστεί στην εκτέλεση.
+Η ακριβής απάντηση εξαρτάται από το πως είναι ρυθμισμένη η Scala (μπορούμε να πούμε στον μεταγλωττιστή να μην μεταγλωττίζει matches που δεν είναι εξαντλητικές, αλλά αυτή δεν είναι η προκαθορισμένη συμπεριφορά).
 </div>
