@@ -1,4 +1,4 @@
-## The Natural Numbers
+## Οι Φυσικοί Αριθμοί
 
 ```tut:invisible
 import doodle.core._
@@ -9,32 +9,32 @@ import doodle.backend.StandardInterpreter._
 val aBox = Image.rectangle(20, 20).fillColor(Color.royalBlue)
 ```
 
-The natural numbers are the whole numbers, or integers, greater than or equal to zero. In other words the numbers 0, 1, 2, 3, ... (Some people define the natural numbers as starting at 1, not 0. It doesn't greatly matter for our purposes which definition you choose, but here we'll assume they start at 0.)
+Οι φυσικοί αριθμοί είναι οι ακέραιοι, μεγαλύτεροι ή ίσοι με το μηδέν. Με άλλα λόγια είναι οι αριθμοί 0, 1, 2, 3, ... (Μερικοί ορίζουν τους φυσικούς αριθμούς σαν να ξεκινάν από το 1 και όχι από το 0. Στην δική μας περίπτωση δεν έχει πολύ μεγάλη σημασία ποιόν ορισμό προτιμάτε αλλά εμείς θα υποθέσουμε ότι ξεκινάν από το 0.)
 
-One interesting property of the natural numbers is that we can define them recursively. That is, we can define them in terms of themselves. This kind of circular definition seems like it would lead to nonsense. We avoid this by including in the definition a *base case* that ends the recursion. Concretely, the definition is:
+Μια ενδιαφέρουσα ιδιότητα των φυσικών αριθμών είναι ότι μπορούν να οριστούν αναδρομικά. Αυτό σημαίνει ότι μπορούμε να τους ορίσουμε σε σχέση με τον εαυτό τους. Θα μπορούσε κανείς να σκεφτεί ότι αυτός ο κυκλικός ορισμός θα οδηγούσε σε παραλογισμό. Για να αποφευχθεί κάτι τέτοιο χρησιμοποιούμε μια *βασική περίπτωση (base case)* η οποία σταματάει την αναδρομή. Επομένως, ο ορισμός είναι ο εξής:
 
-A natural number `n` is
+Ένας φυσικός αριθμός `n` είναι
 
-- 0; or
-- 1 + `m`, where `m` is a natural number.
+- 0, ή
+- 1 + `m`, όπου `m` είναι ένας φυσικός αριθμός.
 
-The case for 0 is the base case, whilst the other case is recursive as it defines a natural number `n` in terms of a natural number `m`. Because `m` is always smaller than `n`, and the base case is the smallest possible natural number, this definition defines all of the natural numbers.
+Η περίπτωση 0 είναι η βασική περίπτωση, ενώ η επόμενη περίπτωση είναι αναδρομική αφού ορίζει τον φυσικό αριθμό `n` σε σχέση με τον φυσικό αριθμό `m`. Επειδή ο `m` είναι πάντα μικρότερος από τον `n`, και η βασική υπόθεση είναι είναι ο μικρότερος πιθανός φυσικός αριθμός, αυτός ο ορισμός ορίζει όλους τους φυσικούς αριθμούς.
 
-Given a natural number, say, 3, we can break it down using the definition above as follows:
+Εάν μας δοθεί ένας φυσικός αριθμός, για παράδειγμα ο 3, μπορούμε να τον διασπάσουμε χρησιμοποιώντας τον παραπάνω ορισμό, ως εξής:
 
 3 = 1 + 2 = 1 + (1 + 1) = 1 + (1 + (1 + 0))
 
-We use the recursive rule to expand the equation, until we cannot use it any more. We then use the base case to stop the recursion.
+Χρησιμοποιούμε τον κανόνα της αναδρομής ώστε να απλοποιήσουμε την εξίσωση μέχρι να φτάσουμε σε σημείο που δεν μπορούμε να χρησιμοποιήσουμε πιά τον κανόνα. Μετά χρησιμοποιούμε την βασική περίπτωση ώστε να σταματήσουμε την αναδρομή.
 
 
-## Structural Recursion
+## Δομημένη Αναδρομή
 
-Now onto structural recursion. The structural recursion pattern for the natural numbers gives us two things:
+Τώρα είμαστε έτοιμοι να δούμε την δομημένη αναδρομή. Η μορφή της δομημένης αναδρομής για φυσικούς αριθμούς μας δίνει δύο πράγματα:
 
-- a reusable code skeleton for processing any natural number; and
-- the guarantee that we can use this skeleton to implement *any* computation on natural numbers.
+- έναν σκελετό κώδικα για την επεξεργασία οποιουδήποτε φυσικού αριθμού που μπορούμε να χρησιμοποιήσουμε σε πάρα πολλές περιπτώσεις, και
+- εγγύηση ότι μπορούμε να χρησιμοποιήσουμε αυτόν τον σκελετό για *οποιονδήποτε* υπολογισμό με φυσικούς αριθμούς.
 
-Remember we wrote `boxes` as
+Θυμηθείτε ότι προηγουμένως γράψαμε την `boxes` όπως παρακάτω
 
 ```tut:book
 def boxes(count: Int): Image =
@@ -44,14 +44,14 @@ def boxes(count: Int): Image =
   }
 ```
 
-When we developed `boxes` we just seemed to stumble upon this pattern. 
-Here we see that this pattern follows directly from the definition of the natural numbers.
-Remember the recursive definition of the natural numbers: a natural number `n` is
+Όταν φτιάχναμε την `boxes` πέσαμε πάνω σ'αυτή τη μορφή που προαναφέραμε.
+Μπορούμε εύκολα να δούμε ότι η παραπάνω μορφή ακολουθεί τον ορισμό των φυσικών αριθμών.
+Θυμηθείτε τον αναδρομικό ορισμό των φυσικών αριθμών: ένας φυσικός αριθμός `n` είναι
 
-- 0; or
-- 1 + `m`, where `m` is a natural number.
+- 0, ή
+- 1 + `m`, όπου `m` είναι ένας φυσικός αριθμός.
 
-The patterns in the `match` expression exactly match this definition. The expression
+Η μορφή της έκφρασης `match` ταιριάζει ακριβώς μ'αυτόν τον ορισμό. Η παρακάτω έκφραση
 
 ```scala
 count match {
@@ -60,15 +60,15 @@ count match {
 }
 ```
 
-means we're checking `count` for two cases, the case when `count` is 0, and the case when `count` is any other natural number `n` (which is `1 + m`).
+σημαίνει ότι ελέγχουμε το `count` για δύο περιπτώσεις, την περίπτωση όπου το `count` είναι 0, και την περίπτωση όπου το `count` είναι οποιοσδήποτε άλλος φυσικός αριθμός `n` (που είναι `1 + m`).
 
-The right hand side of the `match` expression says what we do in each case. The case for zero is `Image.empty`. The case for `n` is `aBox beside boxes(n-1)`.
+Η δεξιά μεριά της έκφρασης `match` μας λέει τι κάνουμε σε κάθε περίπτωση. Στην περίπτωση μηδέν αντιστοιχεί το αποτέλεσμα `Image.empty`. Στην περίπτωση `n` αντιστοιχεί το `aBox beside boxes(n-1)`.
 
-Now for the really important point. 
-Notice that the structure of the right-hand side mirrors the structure of the natural number we match. 
-When we match the base case 0, our result is the base case `Image.empty`. When we match the recursive case `n` the structure of the right hand side matches the structure of the recursive case in the definition of natural numbers. 
-The definition states that `n` is `1 + m`. 
-On the right-hand side we replace 1 with `aBox`, we replace + with `beside`, and we recursively call `boxes` with `m` (which is `n-1`) where the definition recurses.
+Και τώρα θα μπούμε στο πιό σημαντικό κομμάτι.
+Παρατηρήστε οτι η δομή της δεξιάς μεριάς αντικατοπτρίζει την δομή των φυσικών αριθμών που προσπαθούμε να αντιστοιχίσουμε.
+Όταν αντιστοιχίζουμε την βασική περίπτωση 0, το αποτέλεσμα είναι η βασική περίπτωση `Image.empty`. Όταν αντιστοιχίζουμε την αναδρομική περίπτωση `n` η δομή της δεξιάς μεριάς ταιριάζει με την δομή της αναδρομικής περίπτωσης του ορισμού των φυσικών αριθμών.
+Στον ορισμό δηλώνεται ότι το `n` είναι `1 + m`.
+Στην δεξιά μεριά αντικαθιστούμε το 1 με το `aBox`, το + με το `beside`, και καλούμε αναδρομικά την `boxes` με το `m` (που είναι `n-1`) όπου σύμφωνα με τον ορισμό γίνεται η αναδρομή.
 
 ```tut:book
 def boxes(count: Int): Image =
@@ -78,17 +78,17 @@ def boxes(count: Int): Image =
   }
 ```
 
-To reiterate, the left hand side of the `match` expression exactly matches the definition of natural numbers. The right-hand also matches the definition but we replace natural numbers with images. The image that is equivalent to zero is `Image.empty`. The image that is equivalent to `1 + m` is `aBox beside boxes(m)`.
+Για να συνοψίσουμε, η αριστερή μεριά της έκφρασης `match` ταιριάζει ακριβώς με τον ορισμό των φυσικών αριθμών. Η δεξιά μεριά ταιριάζει με τον ορισμό αλλά αντικαταστήσαμε τους φυσικούς αριθμούς με εικόνες. Η εικόνα που είναι ισοδύναμη με το μηδέν είναι η `Image.empty`. Η εικόνα που είναι ισοδύναμη με το `1 + m` είναι η `aBox beside boxes(m)`.
 
-This general pattern holds for anything we care to write that transforms the natural numbers into some other type.
-We always have a `match` expression.
-We always have the two patterns, corresponding to the base and recursive cases.
-The right hand side expressions always consist of the base case, and the recursive case which itself hasa result specific substitute for `1` and `+`, and a recursive call for `n-1`.
+Αυτή η γενική μορφή ισχύει για οτιδήποτε θέλουμε να γράψουμε που μετατρέπει τους φυσικούς αριθμούς σε κάποιον άλλο τύπο.
+Πάντα έχουμε μια έκφραση `match`.
+Πάντα έχουμε τις δύο μορφές, μια για την βασική και μία για την αναδρομική περίπτωση.
+Οι εκφράσεις της δεξιάς μεριάς είναι πάντα η βασική περίπτωση και η αναδρομική η οποία περιέχει κάτι που αντικαθιστά το `1` και το `+`, και μια αναδρομική κλήση για το `n-1`.
 
 <div class="callout callout-info">
-#### Structural Recursion over Natural Numbers Pattern {-}
+#### Δομημένη Αναδρομη στη Δομή των Φυσικών Αριθμών{-}
 
-The general pattern for structural recursion over the natural numbers is
+Παρακάτω μπορείτε να δείτε την γενική μορφή της δομημένης αναδρομής σε φυσικούς αριθμούς
 
 ```scala
 def name(count: Int): Result =
@@ -98,48 +98,48 @@ def name(count: Int): Result =
   }
 ```
 
-where `Result`, `resultBase`, `resultUnit`, and `add` are specific to the problem we're solving. 
-So to implement a structural recursion over the natural numbers we must
+όπου τα `Result`, `resultBase`, `resultUnit`, καθώς και το `add`, είναι συγκεκριμένα για το πρόβλημα που επιλύουμε.
+Έτσι, για να εφαρμόσουμε την δομημένη αναδρομή σε φυσικούς αριθμούς πρέπει να
 
- - recognise the method we're writing has a natural number as it's input;
- - work out the result type; and
- - decide what should be the base, unit, and addition for the result.
+ - να αναγνωρίσουμε ότι η μέθοδος που γράφουμε παίρνει ως είσοδο έναν φυσικό αριθμό,
+ - να βρούμε τον τύπο του αποτελέσματος, και
+ - να αποφασίσουμε ποια πρέπει να είναι η βασική περίπτωση, η μονάδα και η πρόσθεση για το αποτέλεσμα.
 </div>
 
-We're now ready to go explore the fun that can be had with this simple but powerful tool.
+Τώρα είμαστε έτοιμοι να διασκεδάσουμε εξερευνώντας αυτό το βασικό αλλά πολύ δυνατό εργαλείο.
 
 <div class="callout callout-info">
-### Proofs and Programs
+### Αποδείξεις και Προγράμματα
 
-If you've studied maths you have probably come across proof by induction.
-The general pattern of a proof by induction looks very much like the general pattern of a structural recursion over the natural numbers.
-This is no coincidence; there is a deep relationship between the two.
-We can view a structural recursion over the natural numbers as exactly a proof by induction.
-When we claim the ability to write any transformation on the natural numbers in terms of the structural recursion skeleton, this claim is backed up by the mathematical foundation we're implicitly using.
-We can also prove properties of our code by using the connection between the two: any structural recursion is implicitly defining a proof of some property.
+Αν έχετε μελετήσει μαθηματικά το πιό πιθανό είναι ότι έχετε συναντήσει την μέθοδο της επαγωγής σε αποδείξεις.
+Η γενική μορφή για απόδειξη μέσω επαγωγής μοιάζει πολύ με την γενική μορφή της δομημένης αναδρομής σε φυσικούς αριθμούς.
+Αυτό δεν είναι σύμπτωση, υπάρχει μια σχέση μεταξύ αυτών των δύο.
+Μπορούμε να δούμε την δομημένη αναδρομή σε φυσικούς αριθμούς ως μια απόδειξη μέσω επαγωγής.
+Η δυνατότητα χρήσης της ιδιότητας της μετατροπής των φυσικών αριθμών σε σχέση με τον σκελετό της δομημένης αναδρομής, βασίζεται πάνω σε μαθηματικά που χρησιμοποιούμε έμμεσα.
+Ακόμη, μπορούμε να αποδείξουμε ιδιότητες του κώδικά μας χρησιμοποιώντας την σύνδεση αυτών των δύο: οποιαδήποτε δομημένη αναδρομή ορίζει εμμέσως μία απόδειξη κάποιας ιδιότητας.
 
-This general connection between proofs and programs is known as the *Howard-Curry Isomorphism*.
+Αυτή η γενική σύνδεση μεταξύ αποδείξεων και προγραμμάτων είναι γνωστή ως *Ισομορφισμός Howard-Curry*.
 </div>
 
-### Exercises {-}
+### Ασκήσεις {-}
 
-#### Cross {-}
+#### Σταυρός {-}
 
-Our first exercise is to create a method `cross` that will generate cross images. [@fig:recursion:cross] shows four cross images, which correspond to calling the method `cross` with `0` to `3`.
+Η πρώτη άσκηση που θα κάνουμε είναι να φτιάξουμε μια μέθοδο με όνομα `cross` που θα δημιουργεί εικόνες σταυρών. Στην εικόνα [@fig:recursion:cross] φαίνονται τέσσερις σταυροί, οι οποίοι αντιστοιχούν στην κλήση της μεθόδου `cross` από το `0` ως το `3`.
 
-The method skeleton is
+Ο σκελετός της μεθόδου είναι ο παρακάτω
 
 ```tut:book
 def cross(count: Int): Image =
   ???
 ```
 
-![Crosses generated by `count` from 0 to 3.](./src/pages/recursion/cross.pdf+svg){#fig:recursion:cross}
+![Οι σταυροί παράγονται με `count` από το 0 ως το 3.](./src/pages/recursion/cross.pdf+svg){#fig:recursion:cross}
 
-What pattern will we use to fill in the body of `cross`? Write out the pattern.
+Ποια μορφή θα χρησιμοποιήσουμε για να γεμίσουμε το σώμα της `cross`? Γράψτε εσείς την μορφή.
 
 <div class="solution">
-It's structural recursion over the natural numbers. You should end up with something like
+Θα χρησιμοποιήσουμε δομημένη αναδρομή σε φυσικούς αριθμούς. Αυτό που γράψατε θα πρέπει να μοιάζει με το παρακάτω
 
 ```scala
 def cross(count: Int): Image =
@@ -150,23 +150,23 @@ def cross(count: Int): Image =
 ```
 </div>
 
-Now we've identified the pattern we're using, we need to fill in the problem specific parts:
+Τώρα που βρήκαμε ποια μορφή θα χρησιμοποιήσουμε πρέπει να συμπληρώσουμε τα επιμέρους κομμάτια του προβλήματος:
 
- - the base case; and
- - the unit and addition operators.
+ - την βασική περίπτωση, και
+ - τους operators της μονάδας και της πρόσθεσης.
 
-Hint: use [@fig:recursion:cross] to identify the elements above.
+Βοήθεια: χρησιμοποιήστε την εικόνα [@fig:recursion:cross] για να αναγνωρίσετε τα παραπάνω ζητούμενα στοιχεία.
 
 <div class="solution">
-From the picture we can work out that the base case is a circle.
+Από την εικόνα μπορούμε να καταλάβουμε ότι η βασική περίπτωση είναι ένας κύκλος.
 
-Successive elements in the picture add circles to the top, bottom, left, and right of the image. So our unit is the same as the base, a circle, but the addition operator is not a simple `beside` or `above` like we've seen before but `unit beside (unit above cross(n-1) above unit) beside unit`.
+Διαδοχικά στοιχεία στην εικόνα προσθέτουν κύκλους πάνω, κάτω, στα δεξιά και στα αριστερά. Άρα η μονάδα είναι ίδια με την βασική περίπτωση, δηλαδή ένας κύκλος, αλλά ο operator της πρόσθεσης δεν είναι ένα απλό `beside` ή ένα `above` όπως είχαμε δει προηγουμένως. Σ'αυτή την περίπτωση είναι `unit beside (unit above cross(n-1) above unit) beside unit`.
 </div>
 
-Now finish the implementation of `cross`.
+Τώρα συμπληρώστε όλα τα στοιχεία της μεθόδου `cross`.
 
 <div class="solution">
-Here's what we wrote.
+Παρακάτω μπορείτε να δείτε την δική μας λύση.
 
 ```scala
 def cross(count: Int): Image = {
@@ -180,28 +180,28 @@ def cross(count: Int): Image = {
 </div>
 
 
-#### Chessboard {-}
+#### Σκακιέρα {-}
 
-We saw in the cross exercise that the hard part was identifying the recursive structure in what we were trying to create. Once we'd done that filling in the structural recursion pattern was straightforward.
+Στην άσκηση με τον σταυρό είδαμε οτι το δύσκολο κομμάτι είναι το να αναγνωρίσουμε την αναδρομική δομή σε σχέση μ'αυτό που προσπαθούμε να δημιουργήσουμε. Μόλις όμως το καταφέραμε, η συμπλήρωση των υπόλοιπων στοιχείων της μορφής της δομημένης αναδρομής ήταν εύκολη.
 
-In this exercise and the next we're trying to sharpen you eye for recursive structure. 
-Your mission in this exercise to identify the recursive structure in a chessboard, and implement a method to draw chessboards.
-The method skeleton isn't
+Σ'αυτή και στην επόμενη άσκηση θα προσπαθήσουμε να εξασκήσουμε το μάτι σας στην δομημένη αναδρομή.
+Η αποστολή σας σ'αυτήν την άσκηση είναι να αναγνωρίσετε πως μπορεί να χρησιμοποιηθεί η  δομημένη αναδρομή σε μια σκακιέρα και να φτιάξετε μια μέθοδο που σχεδιάζει σκακιέρες.
+Ο σκελετός της μεθόδου δεν είναι όπως ο παρακάτω
 
 ```tut:silent:book
 def chessboard(count: Int): Image =
   ???
 ```
 
-In [@fig:recursion:chessboards] we have example chessboards drawn with `count` ranging from `0` to `2`.
-Hint: note that now `count` does not give us the width of the chessboard, but tells us the number of atomic "chessboard units"  we combine.
+Στην εικόνα [@fig:recursion:chessboards] μπορείτε να δείτε παραδείγματα με σκακιέρες που έχουν σχεδιαστεί με το `count` να ξεκινάει από το `0` και να φτάνει μέχρι το `2`.
+Βοήθεια: παρατηρήστε ότι το `count` αυτή τη φορά δεν μας δίνει το πλάτος της σκακιέρας αλλά μας λέει τον αριθμό των "μονάδων σκακιέρας"  που πρέπει να συνδυάσουμε.
 
-![Chessboards generated by `count` from 0 to 2.](./src/pages/recursion/chessboards.pdf+svg){#fig:recursion:chessboards}
+![Σκακιέρες που παράγονται για `count` από 0 ως 2.](./src/pages/recursion/chessboards.pdf+svg){#fig:recursion:chessboards}
 
-Implement `chessboard`.
+Φτιάξτε την μέθοδο `chessboard`.
 
 <div class="solution">
-`chessboard` is a structural recursion over the natural numbers, so right away we can write down the skeleton for this pattern.
+η `chessboard` είναι μια δομημένη αναδρομή σε φυσικούς αριθμούς, οπότε μπορούμε να γράψουμε απευθείας τον σκελετό της μεθόδου.
 
 ```scala
 def chessboard(count: Int): Image =
@@ -211,9 +211,9 @@ def chessboard(count: Int): Image =
   }
 ```
 
-As before we must decide on the base, unit, and addition for the result.
-We've given you a hint by showing the progression of chessboards in [@fig:recursion:chessboards].
-From this we can see that the base is a two-by-two chessboard.
+Όπως και προηγουμένως, πρέπει να αποφασίσουμε πως θα είναι η βασική περίπτωση, η μονάδα και η πρόσθεση για το αποτέλεσμα.
+Σας δώσαμε μια βοήθεια δείχνοντας σας την εξέλιξη της σκακιέρας στην εικόνα [@fig:recursion:chessboards].
+Από αυτό μπορούμε να καταλάβουμε ότι η βασική περίπτωση είναι μια σκακιέρα 2 επί 2.
 
 ```tut:silent:book
 val blackSquare = Image.rectangle(30, 30) fillColor Color.black
@@ -223,12 +223,12 @@ val base =
   (redSquare beside blackSquare) above (blackSquare beside redSquare)
 ```
 
-Now to work out the unit and addition. 
-Here we see a change from previous examples.
-The unit is the value we get from the recursive call `chessboard(n-1)`.
-The addition operation is `(unit beside unit) above (unit beside unit)`.
+Τώρα πρέπει να βρούμε την μονάδα και την πρόσθεση.
+Εδώ βλέπουμε κάτι διαφορετικό από τα προηγούμενα παραδείγματα.
+Η μονάδα είναι η τιμή που παίρνουμε από την αναδρομική κλήση `chessboard(n-1)`.
+Η λειτουργία της πρόσθεσης είναι `(unit beside unit) above (unit beside unit)`.
 
-Putting it all together we get
+Βάζοντάς τα όλα μαζί παίρνουμε τον παρακάτω κώδικα
 
 ```tut:silent:book
 def chessboard(count: Int): Image = {
@@ -246,33 +246,33 @@ def chessboard(count: Int): Image = {
 }
 ```
 
-If you have prior programming experience you might have immediately thought of creating a chessboard via two nested loops.
-Here we're taking a different approach by defining a larger chessboard as a composition of smaller chessboards.
-Grasping this different approach to decomposing problems is a key step in becoming proficient in functional programming.
+Αν έχετε προηγούμενη εμπειρία στον προγραμματισμό ίσως σκεφτήκατε ότι μπορείτε να φτιάξετε μια σκακιέρα χρησιμοποιώντας δύο εμφωλευμένους βρόγχους.
+Εδώ εμείς ακολουθήσαμε μια διαφορετική προσέγγιση ορίζοντας μια μεγάλη σκακιέρα ως σύνθεση μικρότερων.
+Η κατανόηση αυτής της διαφορετικής προσέγγισης για αποσύνθεση προβλημάτων είναι ένα βήμα κλειδί για να γίνετε ικανοί στον συναρτησιακό προγραμματισμό.
 </div>
 
 
-#### Sierpinkski Triangle {-}
+#### Τρίγωνο Sierpinkski {-}
 
-The Sierpinski triangle, show in [@fig:recursion:sierpinski], is a famous fractal. (Technically, [@fig:recursion:sierpinski] shows a Sier*pink*ski triangle.)
+Το τρίγωνο Sierpinski, όπως φαίνεται στην εικόνα [@fig:recursion:sierpinski], είναι ένα διάσημο fractal. (Στην πραγματικότητα, η εικόνα [@fig:recursion:sierpinski] δείχνει ένα τρίγωνο Sier*pink*ski.)
 
-![The Sierpinski triangle.](./src/pages/recursion/sierpinski.pdf+svg){#fig:recursion:sierpinski}
+![Το τρίγωνο Sierpinski.](./src/pages/recursion/sierpinski.pdf+svg){#fig:recursion:sierpinski}
 
-Although it looks complicated we can break the structure down into a form that we can generate with structural recursion over the natural numbers.
-Implement a method with skeleton
+Μπορεί να φαίνεται αρκετά περίπλοκο αλλά μπορούμε να διασπάσουμε την δομή σε μια μορφή την οποία μπορούμε να φτιάξουμε χρησιμοποιώντας δομημένη αναδρομή σε φυσικούς αριθμούς.
+Φτιάξτε μια μέθοδο με τον παρακάτω σκελετό
 
 ```tut:book
 def sierpinski(count: Int): Image =
   ???
 ```
 
-No hints this time. 
-We've already seen everything we need to know.
+Αυτή τη φορά δεν θα σας δοθεί βοήθεια.
+Έχουμε ήδη δει όλα όσα χρειαζόμαστε για να το λύσουμε.
 
 <div class="solution">
-The key step is to recognise that the basic unit of the Sierpinski triangle is `triangle above (triangle beside triangle)`.
-Once we've worked this out, the code has exactly the same structure as `chessboard`.
-Here's our implementation.
+Το βήμα κλειδί είναι να αναγνωρίσουμε ότι η βασική μονάδα του τριγώνου Sierpinski είναι η `triangle above (triangle beside triangle)`.
+Μόλις κατανοήσουμε το παραπάνω τότε συνεχίζοντας θα δούμε ότι ο κώδικας έχει ακριβώς την ίδια δομή με την `chessboard`.
+Παρακάτω μπορείτε να δείτε έναν τρόπο λύσης.
 
 ```tut:book
 
