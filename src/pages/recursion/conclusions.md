@@ -1,6 +1,6 @@
-## Conclusions
+## Συμπεράσματα
 
-In this chapter we've seen our first big pattern for structuring code, *structural recursion over the natural numbers*.
-We've seen a lot of examples that generate images, but we can use this pattern for anything that is transforming a natural number into anything else (including other natural numbers).
+Σ'αυτό το κεφάλαιο είδαμε την πρώτη μας μεγάλη δομή για δομημένο κώδικα, την *δομημένη αναδρομή σε φυσικούς αριθμούς*.
+Είδαμε πολλά παραδείγματα για δημιουργία εικόνων αλλά μπορούμε να χρησιμοποιήσουμε την δομημένη αναδρομή σε φυσικούς αριθμούς για οτιδήποτε μετατρέπει έναν φυσικό αριθμό σε κάτι άλλο (συμπεριλαμβανομένου και άλλων φυσικών αριθμών).
 
-We'll use this pattern, and other variants of structural recursion, throughout the book.
+Θα χρησιμοποιήσουμε αυτή τη δομή καθώς και άλλες παραλλαγές της σε όλο το υπόλοιπο βιβλίο.
