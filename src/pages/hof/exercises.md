@@ -72,7 +72,7 @@ def sample(start: Angle, samples: Int, location: Angle => Point): Image = {
 }
 ```
 
-Ίσως ακόμη να θέλουμε να απομονώσουμε την επιλογή της πρωτότυπης εικόνας (??image primitive??) (το `dot` ή το `Image.triangle` παραπάνω).
+Ίσως ακόμη να θέλουμε να απομονώσουμε την επιλογή της βασικής εικόνας (το `dot` ή το `Image.triangle` παραπάνω).
 Για να το καταφέρουμε, μπορούμε να αλλάξουμε το `location` ώστε να γίνει μια ξεχωριστή συνάρτηση `Angle => Image`.
 
 ```tut:silent:book

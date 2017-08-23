@@ -1,4 +1,4 @@
-## Working with Lists
+## Δουλεύοντας με Λίστες
 
 ```tut:invisible
 import doodle.core._
@@ -8,34 +8,34 @@ import doodle.jvm.Java2DFrame._
 import doodle.backend.StandardInterpreter._
 ```
 
-At this point you might be thinking it would be nice to create a method to draw polygons rather than constructing each one by hand. 
-There is clearly a repeating pattern to their construction and we would be able to generalise this pattern if we knew how to create a list of arbitrary size. 
-It's time we learned more about building and manipulating lists.
+Σ'αυτό το σημείο ίσως σκέφτεστε ότι θα ήταν καλή ιδέα να δημιουργήσουμε μια μέθοδο που θα φτιάχνει πολύγωνα αντί να τα κατασκευάζουμε κάθε φορά από την αρχή.
+Είναι φανερό ότι υπάρχουν επαναλαμβανόμενα κομμάτια στην κατασκευή τους και άρα θα μπορούσαμε να τα γενικεύσουμε αν γνωρίζαμε πως να φτιάχνουμε λίστες μη προκαθορισμένου μεγέθους.
+Ήρθε η ώρα να μάθουμε περισσότερα για την δημιουργία και την διαχείριση λιστών.
 
 
-### The Recursive Structure of Lists
+### Η Αναδρομική Δομή των Λιστών
 
-You'll recall when we introduced structural recursion over the natural numbers we said we could transform their recursive structure into any other recursive structure. 
-We demonstrated this for concentric circles and a variety of other patterns.
+Ίσως θυμάστε ότι όταν μιλήσαμε για πρώτη φορά για την δομημένη αναδρομή σε φυσικούς αριθμούς, είπαμε ότι θα μπορούσαμε να μετατρέψουμε την αναδρομική τους δομή σε οποιαδήποτε άλλη αναδρομική δομή.
+Το εφαρμόσαμε στους ομόκεντρους κύκλους καθώς και σε διάφορες άλλες περιπτώσεις.
 
-Lists have a recursive structure, and one that is very similar to the structure of the natural numbers. A `List` is
+Οι λίστες έχουν μια αναδρομική δομή η οποία είναι παρόμοια με αυτή της δομής των φυσικών αριθμών. Μια λίστα μπορεί να είναι
 
-- the empty list `Nil`; or
-- a pair of an element `a` and a `List`, written `a :: tail`, where `tail` is the rest of the list.
+- άδεια `Nil`, ή
+- ένα ζεύγος που αποτελείται από ένα στοιχείο `a` και μια `List`, και γράφεται ως `a :: tail`, όπου το `tail` είναι το υπόλοιπο της λίστας.
 
-For example, we can write out the list `List(1, 2, 3, 4)` in its "long" form as
+Για παράδειγμα, μπορούμε να γράψουμε την λίστα `List(1, 2, 3, 4)` στην "μακρύτερη" της μορφή ως
 
 ```tut:book
 1 :: 2 :: 3 :: 4 :: Nil
 ```
 
-Notice the similarity to the natural numbers. 
-Earlier we noted we can expand the structure of a natural number so we could write, say, `3` as `1 + 1 + 1 + 0`. 
-If we replace `+` with `::` and `0` with `Nil` we get the `List` `1 :: 1 :: 1 :: Nil`.
+Παρατηρήστε την ομοιότητα με τους φυσικούς αριθμούς.
+Προηγουμένως είπαμε ότι μπορούμε να επεκτείνουμε την δομή ενός φυσικού αριθμού ώστε να γράψουμε, για παράδειγμα, τον αριθμό `3` ως `1 + 1 + 1 + 0`.
+Αν αντικαταστήσουμε το `+` με `::` και το `0` με `Nil` τότε παίρνουμε `List` `1 :: 1 :: 1 :: Nil`.
 
-What does this mean? 
-It means we can easily transform a natural number into a `List` using our famililar tool of structural recursion[^free-monoid]. 
-Here's a very simple example, which given a number builds a list of that length containing the `String` "Hi".
+Τι σημαίνει όμως αυτό;
+Σημαίνει ότι μπορούμε πολύ εύκολα να μετατρέψουμε ένα φυσικό αριθμό σε `List` χρησιμοποιώντας το γνωστό εργαλείο της δομημένης αναδρομής[^free-monoid].
+Παρακάτω μπορείτε να δείτε ένα πολύ απλό παράδειγμα, στο οποίο με δεδομένο έναν αριθμό, δημιουργείται μια λίστα αυτού του μεγέθους, που περιέχει το `String` "Hi".
 
 ```tut:book
 def sayHi(length: Int): List[String] =
@@ -47,15 +47,15 @@ def sayHi(length: Int): List[String] =
 sayHi(5)
 ```
 
-The code here is transforming:
+Ο παραπάνω κώδικας μετατρέπει:
 
- - `0` to `Nil`, for the base case; and
- - `n` (which, remember, we think of as `1 + m`) to `"Hi" :: sayHi(n - 1)`, transforming `1` to `"Hi"`, `+` to `::`, and recursing as usual on `m` (which is `n - 1`).
+ - το `0` σε `Nil`, για την βασική περίπτωση, και
+ - το`n` (το οποίο θυμηθείτε ότι το θεωρούμε σαν `1 + m`) σε `"Hi" :: sayHi(n - 1)`, μετατρέποντας το `1` σε `"Hi"`, το `+` σε `::`, και ως συνήθως κάνοντας αναδρομή στο `m` (το οποίο είναι `n - 1`).
 
-[^free-monoid]: This connection goes deeper. We can abstract the idea of things that can be "added" into a concept called a monoid, and a list represents a particular type of monoid called the free monoid. We aren't going to work with this abstraction in Creative Scala but you're encouraged to explore on your own!
+[^free-monoid]: Η σύνδεσή τους είναι πιο βαθιά. Μπορούμε να χρησιμοποιήσουμε την μέθοδο της αφαίρεσης σε ότι "προστίθεται" για να εφαρμόσουμε μια έννοια η οποία ονομάζεται monoid, όπου μια λίστα αντιπροσωπεύει έναν συγκεκριμένο τύπο monoid που καλείται free monoid. Δεν θα χρησιμοποιήσουμε αυτή τη μέθοδο στην Creative Scala αλλά μπορείτε να το ψάξετε μόνοι σας!
 
-This recursive structure also means we can transform lists into other recursive structures, such a natural numbers, different lists, chessboards, and so on. 
-Here we increment every element a list---that is, transform a list to a list---using structural recursion.
+Ακόμη, αυτή η αναδρομική δομή μας επιτρέπει να μετατρέψουμε λίστες σε άλλες αναδρομικές δομές, όπως φυσικούς αριθμούς, άλλες λίστες, σκακιέρες κλπ.
+Εδώ αυξάνουμε κάθε στοιχείο της λίστας---που σημαίνει ότι μετατρέπουμε την λίστα σε άλλη λίστα---χρησιμοποιώντας δομημένη αναδρομή.
 
 ```tut:book
 def increment(list: List[Int]): List[Int] =
@@ -67,7 +67,7 @@ def increment(list: List[Int]): List[Int] =
 increment(List(1, 2, 3))
 ```
 
-Here we sum the elements of a list of integers---that is, transform a list to a natural number---using structural recursion.
+Εδώ προσθέτουμε τα στοιχεία μια λίστας με ακεραίους---δηλαδή μετατρέπουμε την λίστα σε φυσικό αριθμό---χρησιμοποιώντας δομημένη αναδρομή.
 
 ```tut:book
 def sum(list: List[Int]): Int =
@@ -79,13 +79,13 @@ def sum(list: List[Int]): Int =
 sum(List(1, 2, 3)) 
 ```
 
-Notice when we take a `List` apart with pattern matching we use the same `hd :: tl` syntax we use when we construct it.
-This is an intentional symmetry.
+Παρατηρήστε ότι όταν ξεχωρίζουμε τα στοιχεία της `List` για να εφαρμόσουμε τις περιπτώσεις της match, χρησιμοποιούμε το ίδιο συντακτικό `hd :: tl` που χρησιμοποιήσαμε και για να την κατασκευάσουμε.
+Αυτή η συμμετρία είναι σκόπιμη.
 
 
-### Type Variables
+### Μεταβλητές Τύπων
 
-What about finding the length of a list? We know we can use our standard tool of structural recursion to write the method. Here's the code to calculate the length of a `List[Int]`.
+Τι γίνεται αν θέλουμε να βρούμε το μήκος μιας λίστας; Γνωρίζουμε ότι μπορούμε να χρησιμοποιήσουμε το συνηθισμένο μας εργαλείο, δηλαδή την δομημένη αναδρομή, ώστε να γράψουμε μια μέθοδο που θα κάνει ακριβώς αυτό. Παρακάτω μπορείτε να δείτε τον κώδικα για τον υπολογισμό του μήκους μιας λίστας `List[Int]`.
 
 ```tut:book
 def length(list: List[Int]): Int =
@@ -95,13 +95,13 @@ def length(list: List[Int]): Int =
   }
 ```
 
-Note that we don't do anything with the elements of the list---we don't really care about their type. 
-Using the same code skeleton can just as easily calculate the length of a `List[Int]` as a `List[HairyYak]` but we don't currently know how to write down the type of a list where we don't care about the type of the elements.
+Παρατηρήστε ότι δεν ασχολούμαστε με τα στοιχεία της λίστας---δεν μας ενδιαφέρει ο τύπος τους.
+Χρησιμοποιώντας τον ίδιο σκελετό μπορούμε να υπολογίσουμε το ίδιο εύκολα το μήκος μιας λίστας `List[Int]` όπως και μιας λίστας `List[HairyYak]` αλλά μέχρι τώρα δεν ξέρουμε πως να ορίσουμε μια λίστα της οποίας δεν μας ενδιαφέρει ο τύπος των στοιχείων της.
 
-Scala lets us write methods that can work with any type, by using what is called a *type variable*. 
-A type variable is written in square brackets like `[A]` and comes after the method name and before the parameter list. 
-A type variable can stand in for any specific type, and we can use it in the parameter list or result type to indicate some type that we don't know up front. 
-For example, here's how we can write `length` so it works with lists of any type.
+Η Scala μας επιτρέπει να γράφουμε μεθόδους οι οποίες μπορούν να δουλέψουν με οποιονδήποτε τύπο χρησιμοποιώντας κάτι που ονομάζεται *μεταβλητή τύπου*.
+Η μεταβλητή τύπου γράφεται μέσα σε αγκύλες, δηλαδή `[A]`, και βρίσκεται μετά το όνομα της μεθόδου και πριν την λίστα παραμέτρων.
+Μια μεταβλητή τύπου, μπορεί να αντικαταστήσει οποιονδήποτε τύπο και μπορούμε να την χρησιμοποιήσουμε στην λίστα παραμέτρων ή στον τύπο που αποτελέσματος ώστε να αντικαταστήσει κάποιον τύπο που δεν γνωρίζουμε από την αρχή ποιος είναι.
+Για παράδειγμα, παρακάτω μπορείτε να δείτε πως μπορούμε να γράψουμε την `length` ώστε να δουλεύει με λίστες όλων των τύπων.
 
 ```tut:book
 def length[A](list: List[A]): Int =
@@ -113,34 +113,34 @@ def length[A](list: List[A]): Int =
 
 
 <div class="callout callout-info">
-#### Structural Recursion over a List {-}
+#### Δομημένη Αναδρομή σε Λίστα {-}
 
-A `List` of elements of type `A` is:
+Μια `List` στοιχείων τύπου `A` είναι:
 
-- the empty list `Nil`; or
-- an element `a` of type `A` and a `tail` of type `List[A]`: `a :: tail`
+- άδεια `Nil`, ή
+- ένα στοιχείο `a` τύπου `A` και μια `tail` τύπου `List[A]`: `a :: tail`
 
-The structural recursion skeleton for transforming `list` of type `List[A]` to some type `B` has shape
+Το σχήμα της δομημένης αναδρομής για την μετατροπή μιας `list` με τύπο `List[A]` σε έναν τύπο `B` είναι το παρακάτω
 
 ```
 def doSomething[A,B](list: List[A]): B =
   list match {
-    case Nil => ??? // Base case of type B here
+    case Nil => ??? // Βασική περίπτωση για τον τύπο Β
     case hd :: tl => f(hd, doSomething(tl))
   }  
 ```
 
-where `f` is a problem specific method combining `hd` and result of the recursive call to produce something of type `B`.
+όπου το `f` είναι μια συγκεκριμένη μέθοδος για προβλήματα η οποία συνδυάζει το `hd` και το αποτέλεσμα της αναδρομικής κλήσης ώστε να παράξει κάτι με τύπο `B`.
 </div>
 
 
-### Exercises {-}
+### Ασκήσεις {-}
 
-#### Building Lists {-}
+#### Κατασκευή Λιστών {-}
 
-In these exercises we get some experience constructing lists using structural recursion on the natural numbers.
+Κάνοντας τις παρακάτω ασκήσεις θα γίνουμε πιο έμπειροι στην κατασκευή λιστών με χρήση της δομημένης αναδρομής σε φυσικούς αριθμούς
 
-Write a method called `ones` that accepts an `Int` `n` and returns a `List[Int]` with length `n` and every element `1`. For example
+Γράψτε μια μέθοδο με όνομα `ones` η οποία δέχεται έναν ακέραιο `n` και επιστρέφει μια λίστα `List[Int]` με μήκος `n` όπου όλα τα στοιχεία της είναι `1`. Για παράδειγμα
 
 ```tut:invisible
 def ones(n: Int): List[Int] =
@@ -155,7 +155,7 @@ ones(3)
 ```
 
 <div class="solution">
-It's structural recursion over the natural numbers!
+Είναι δομημένη αναδρομή σε φυσικούς αριθμούς!
 
 ```tut:book
 def ones(n: Int): List[Int] =
@@ -169,7 +169,7 @@ ones(3)
 </div>
 
 
-Write a method `descending` that accepts an natural number `n` and returns a `List[Int]` containing the natural numbers from `n` to `1` or the empty list if `n` is zero. For example
+Γράψτε μια μέθοδο με όνομα `descending` η οποία δέχεται έναν φυσικό αριθμό `n` και επιστρέφει μια `List[Int]` η οποία περιέχει τους φυσικούς αριθμούς από το `n` ως το `1` ή να επιστρέφει την άδεια λίστα αν το `n` είναι μηδέν. Για παράδειγμα
 
 ```tut:invisible
 def descending(n: Int): List[Int] =
@@ -185,7 +185,7 @@ descending(3)
 ```
 
 <div class="solution">
-Once more, we can employ structural recursion over the natural numbers.
+Για άλλη μια φορά, μπορούμε να χρησιμοποιήσουμε δομημένη αναδρομή σε φυσικούς αριθμούς.
 
 ```tut:book
 def descending(n: Int): List[Int] =
@@ -201,7 +201,7 @@ descending(3)
 </div>
 
 
-Write a method `ascending` that accepts a natural number `n` and returns a `List[Int]` containing the natural numbers from `1` to `n` or the empty list if `n` is zero.
+Γράψτε μια μέθοδο με όνομα `ascending` η οποία δέχεται έναν φυσικό αριθμό `n` και επιστρέφει μια `List[Int]` η οποία περιέχει τους φυσικούς αριθμούς από το `1` ως το `n` ή να επιστρέφει την άδεια λίστα αν το `n` είναι μηδέν.
 
 ```tut:invisible
 def ascending(n: Int): List[Int] = {
@@ -221,7 +221,7 @@ ascending(3)
 ```
 
 <div class="solution">
-It's structural recursion over the natural numbers, but this time with an internal accumulator.
+Είναι δομημένη αναδρομή σε φυσικούς αριθμούς αλλά αυτή τη φορά έχει έναν εσωτερικό συσσωρευτή.
 
 ```tut:book
 def ascending(n: Int): List[Int] = {
@@ -239,7 +239,7 @@ ascending(3)
 ```
 </div>
 
-Create a method `fill` that accepts a natural number `n` and an element `a` of type `A` and constructs a list of length `n` where all elements are `a`.
+Φτιάξτε μια μέθοδο με όνομα `fill` η οποία δέχεται έναν φυσικό αριθμό `n` και ένα στοιχείο `a` τύπου `A` και κατασκευάζει μια λίστα μήκους `n` όπου όλα της τα στοιχεία είναι `a`.
 
 ```tut:invisible
 def fill[A](n: Int, a: A): List[A] =
@@ -255,7 +255,7 @@ fill(3, Color.blue)
 ```
 
 <div class="solution">
-In this exercise we're asking you to use a type variable. Otherwise it is the same pattern as before.
+Σ'αυτή την άσκηση σας ζητάμε να χρησιμοποιήσετε μια μεταβλητή τύπου. Κατά τ'άλλα είναι η ίδια μορφή με πριν.
 
 ```tut:book
 def fill[A](n: Int, a: A): List[A] =
@@ -269,11 +269,11 @@ fill(3, Color.blue)
 ```
 </div>
 
-#### Transforming Lists {-}
+#### Μετατροπή Λιστών {-}
 
-In these exercises we practice the other side of list manipulation---transforming lists into elements of other types (and sometimes, into different lists).
+Σ'αυτή την άσκηση θα εξασκηθούμε στην άλλη πλευρά του χειρισμού λιστών---στην μετατροπή τους σε στοιχεία άλλων τύπων (και μερικές φορές και σε διαφορετικές λίστες).
 
-Write a method `double` that accepts a `List[Int]` and returns a list with each element doubled.
+Γράψτε μια μέθοδο με όνομα `double` η οποία δέχεται μια `List[Int]` και επιστρέφει μια λίστα όπου το κάθε της στοιχείο είναι διπλασιασμένο.
 
 ```tut:invisible
 def double(list: List[Int]): List[Int] =
@@ -289,7 +289,7 @@ double(List(4, 9, 16))
 ```
 
 <div class="solution">
-This is a structural recursion over a list, building a list at each step. The destructuring of the input is mirrored by the construction of the output.
+Αυτή είναι μια δομημένη αναδρομή σε λίστα όπου σε κάθε της βήμα κατασκευάζει μια λίστα. Η αποδόμηση της εισόδου αντικατοπτρίζεται στην κατασκευή της εξόδου.
 
 ```tut:book
 def double(list: List[Int]): List[Int] =
@@ -304,7 +304,7 @@ double(List(4, 9, 16))
 </div>
 
 
-Write a method `product` that accepts a `List[Int]` and calculates the product of all the elements.
+Γράψτε μια μέθοδο με όνομα `product` η οποία δέχεται μια `List[Int]` και υπολογίζει το γινόμενο όλων των στοιχείων.
 
 ```tut:invisible
 def product(list: List[Int]): Int =
@@ -320,7 +320,7 @@ product(List(1,2,3))
 ```
 
 <div class="solution">
-This is a structural recursion over a list using the same pattern as `sum` in the examples above.
+Είναι μια δομημένη αναδρομή σε λίστα η οποία χρησιμοποιεί την ίδια μορφή με την `sum` που είδαμε παραπάνω.
 
 ```tut:book
 def product(list: List[Int]): Int =
@@ -335,7 +335,7 @@ product(List(1,2,3))
 ```
 </div>
 
-Write a method `contains` that accepts a `List[A]` and an element of type `A` and returns true if the list contains the element and false otherwise.
+Γράψτε μια μέθοδο με όνομα `contains` η οποία δέχεται μια `List[A]` και ένα στοιχείο τύπου `A` και επιστρέφει true αν η λίστα περιέχει το στοιχείο ή σε αντίθετη περίπτωση false.
 
 ```tut:invisible
 def contains[A](list: List[A], elt: A): Boolean =
@@ -351,7 +351,7 @@ contains(List("one", "two", "three"), "four")
 ```
 
 <div class="solution">
-Same pattern as before, but using a type variable to allow type of the elements to vary.
+Ίδια μορφή με πριν αλλά χρησιμοποιούμε μια μεταβλητή τύπου ώστε να επιτρέψουμε την πικοιλία των τύπων των στοίχειων.
 
 ```tut:book
 def contains[A](list: List[A], elt: A): Boolean =
@@ -365,7 +365,7 @@ contains(List("one", "two", "three"), "four")
 ```
 </div>
 
-Write a method `first` that accepts a `List[A]` and an element of type `A` and returns the first element of the list if it is not empty and otherwise returns the element of type `A` passed as a aprameter.
+Γράψτε μια μέθοδο με όνομα `first` η οποία δέχεται μια `List[A]` και ένα στοιχείο τύπου `A` και επιστρέφει το πρώτο στοιχείο της λίστας, αν αυτή δεν είναι άδεια, ή αλλιώς το στοιχείο τύπου `A` που περάσαμε ως παράμετρο.
 
 ```tut:invisible
 def first[A](list: List[A], elt: A): A =
@@ -381,7 +381,7 @@ first(List(1,2,3), 4)
 ```
 
 <div class="solution">
-This method is similar to `contains` above, except we now use the type variable in the return type as well as in the parameter types.
+Αυτή η μέθοδος είναι παρόμοια με την `contains` αλλά χρησιμοποιήσαμε μια μεταβλητή τύπου για τον τύπο του αποτελέσματος καθώς και για τους τύπους των παραμέτρων.
 
 ```tut:book
 def first[A](list: List[A], elt: A): A =
@@ -396,9 +396,9 @@ first(List(1,2,3), 4)
 </div>
 
 
-#### Challenge Exercise: Reverse {-}
+#### Άσκηση Πρόκληση: Αντιστροφή {-}
 
-Write a method `reverse` that accepts a `List[A]` and reverses the list.
+Γράψτε μια μέθοδο με όνομα `reverse` η οποία δέχεται μια λίστα `List[A]` και την αντιστρέφει.
 
 ```tut:invisible
 def reverse[A](list: List[A]): List[A] = {
@@ -418,8 +418,8 @@ reverse(List("a", "b", "c"))
 ```
 
 <div class="solution">
-The trick here is to use an accumulator to hold the partially reversed list. 
-If you managed to work this one out, congratulations---you really understand structural recursion well!
+Το κόλπο είναι να χρησιμοποιήσετε έναν συσσωρευτή ώστε να να κρατήσετε την μερικώς αντεστραμμένη λίστα.
+Αν καταφέρατε να το βρείτε μόνοι σας, συγχαρητήρια!---έχετε καταλάβει την δομημένη αναδρομή πολύ καλά!
 
 ```tut:book
 def reverse[A](list: List[A]): List[A] = {
@@ -438,21 +438,21 @@ reverse(List("a", "b", "c"))
 </div>
 
 
-#### Polygons! {-}
+#### Πολύγωνα! {-}
 
-At last, let's return to our example of drawing polygons. 
-Write a method `polygon` that accepts the number of sides of the polygon and the starting rotation and produces a `Image` representing the specified regular polygon. 
-*Hint:* use an internal accumulator.
+Τέλος, ας επιστρέψουμε στο παράδειγμα με τον σχεδιασμό πολυγώνων.
+Γράψτε μια μέθοδο με όνομα `polygon` η οποία δέχεται τον αριθμό των πλευρών του πολυγώνου και την αρχική περιστροφή και παράγει μια `Image` με το αντίστοιχο πολύγωνο.
+*Βοήθεια:* χρησιμοποιήστε έναν εσωτερικό συσσωρευτή.
 
-Use this utility to create an interesting picture combining polygons. 
-Our rather unimaginative example is in [@fig:sequences:concentric-polygons]. We're sure you can do better.
+Χρησιμοποιήστε αυτόν τον κώδικα για να δημιουργήσετε μια ενδιαφέρουσα εικόνα συνδυάζοντας πολύγωνα.
+Μπορείτε να δείτε το δικό μας ευφάνταστο παράδειγμα στην εικόνα [@fig:sequences:concentric-polygons]. Είμαστε σίγουροι ότι εσείς μπορείτε και καλύτερα από αυτό.
 
-![Concentric polygons with pastel gradient fill.](./src/pages/sequences/concentric-polygons.pdf+svg){#fig:sequences:concentric-polygons}
+![Ομόκεντρα πολύγωνα σε παστέλ αποχρώσεις.](./src/pages/sequences/concentric-polygons.pdf+svg){#fig:sequences:concentric-polygons}
 
 <div class="solution">
-Here's our code. 
-Note how we factored the code into small components---though we could have taken the factoring further is we wanted to. 
-(Can you see how? Hint: do we need to pass, say, `start` to every call of `makeColor` when it's not changing?)
+Δείτε παρακάτω τον κώδικά μας!
+Παρατηρήστε ότι οργανώσαμε τον κώδικά μας σε μικρότερα κομμάτια---και θα μπορούσαμε να τα κάνουμε και ακόμα πιο μικρά αν θέλαμε.
+(Μπορείτε να καταλάβετε πως το καταφέραμε; Βοήθεια: Είναι απαραίτητο να περάσουμε, για παράδειγμα, το `start` σε κάθε κλήση της `makeColor` όταν δεν αλλάζει;)
 
 ```tut:silent:book
 import Point._
