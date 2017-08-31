@@ -1,15 +1,15 @@
-# Composition of Generative Art
+# Σύνθεση Αναπαραγωγικής Τέχνης
 
-In this chapter we'll explore techniques from generative art, which will in turn allow us to explore key concepts for functional programming. We'll see:
+Σ'αυτό το κεφάλαιο θα εξερευνήσουμε τεχνικές της αναπαραγωγικής τέχνης, οι οποίες με την σειρά τους θα μας επιτρέψουν να εξερευνήσουμε έννοιες-κλειδιά του συναρτησιακού προγραμματισμού. Θα δούμε:
 
-- uses for `map` and `flatMap` that go beyond manipulating collections of data that we've seen in the previous chapters; 
-- how we can handle side effects without breaking substitution; and
-- some interesting, and possibly beautiful, images that combine elements of structure and randomness.
+- χρήσεις της `map` και της `flatMap` οι οποίες προχωράν πολύ μακρύτερα από τον χειρισμό συλλογών δεδομένων που έχουμε δει σε προηγούμενα κεφάλαια,
+- πώς μπορούμε να χειριστούμε "παρενέργειες" χωρίς να βάζουμε σε κίνδυνο την έννοια της αντικατάστασης που είδαμε σε προηγούμενο κεφάλαιο και
+- μερικές ενδιαφέρουσες και πιθανόν και όμορφες εικόνες που συνδυάζουν στοιχεία δομής αλλά και τυχαιότητας.
 
-![An example image generated using the techniques in this chapter](./src/pages/generative/volcano.png){#fig:generative:volcano}
+![Ένα παράδειγμα εικόνας που έχει δημιουργηθεί με την χρήση τεχνικών αυτού του κεφαλαίου](./src/pages/generative/volcano.png){#fig:generative:volcano}
 
 <div class="callout callout-info">
-If you run the examples from the SBT console within Doodle they will just work. If not, you will need to start your code with the following imports to make Doodle available.
+Τα προγράμματά σας θα δουλέψουν αν τα εκτελείτε από την κονσόλα SBT που υπάρχει μέσα στο Doodle. Αν όχι, θα πρέπει να ξεκινήσετε τον κώδικά σας με τα παρακάτω imports ώστε να κάνετε το Doodle διαθέσιμο.
 
 ```tut:silent
 import doodle.core._
