@@ -1,4 +1,4 @@
-# Solutions to Exercises {#solutions}
+# Λύσεις Ασκήσεων {#solutions}
 
 <div class="solutions">
 </div>

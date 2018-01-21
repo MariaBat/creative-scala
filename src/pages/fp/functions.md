@@ -99,7 +99,7 @@ def manyShapes(n: Int, singleShape: Int => Image): Image =
 Το μόνο που πρέπει να κάνουμε είναι να δώσουμε τον κατάλληλο ορισμό στην `singleShape`:
 
 ~~~ scala
-// Απευθείας πέρασμα κυριολεκτικού συνάρτησης:
+// Απευθείας πέρασμα κυριολεκτικής έκφρασης συνάρτησης:
 
 val blackCircles: Image =
   manyShapes(10, (n: Int) => Circle(50 + 5*n))

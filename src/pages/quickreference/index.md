@@ -2,10 +2,10 @@
 
 # Γρήγορη Αναφορά στο Συντακτικό {#syntax-quick-reference}
 
-## Κυριολεκτικά και Εκφράσεις
+## Κυριολεκτικές Εκφράσεις
 
 ~~~ scala
-// Κυριολεκτικά:
+// Κυριολεκτικές Εκφράσεις:
 123      // Int
 123.0    // Double
 "Hello!" // String
@@ -16,7 +16,7 @@ true     // Boolean
 10 + 2.0 // Int + Double = Double
 10 / 2   // Int / Int    = Double
 
-// ΠράξειςBoolean:
+// Πράξεις Boolean:
 true && false // logical AND
 true || false // logical OR
 !true         // logical NOT
