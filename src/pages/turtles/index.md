@@ -37,14 +37,14 @@ val path =
 import doodle.turtle._
 import doodle.turtle.Instruction._
 
-// Δημιούργησε μια λίστα εντολών για το turtle
+// Δημιούργησε μία λίστα εντολών για το turtle
 val instructions: List[Instruction] = 
   List(forward(10), turn(90.degrees), 
        forward(10), turn(90.degrees), 
        forward(10), turn(90.degrees), 
        forward(10))
 
-// Ζήτα από το turtle να ζωγραφίσει αυτές τις εντολές δημιουργώντας μια εικόνα
+// Ζήτα από το turtle να ζωγραφίσει αυτές τις εντολές δημιουργώντας μία εικόνα
 val path: Image = Turtle.draw(instructions)
 ```
 

@@ -149,8 +149,8 @@ val i: Image = Triangle(width, height)
 val i: Image = imageA beside imageB // οριζόντια διάταξη
 val i: Image = imageA above  imageB // κάθετη διάταξη
 val i: Image = imageA below  imageB // κάθετη διάταξη
-val i: Image = imageA on     imageB // η μια πάνω στην άλλη
-val i: Image = imageA under  imageB // η μια πάνω στην άλλη
+val i: Image = imageA on     imageB // η μία πάνω στην άλλη
+val i: Image = imageA under  imageB // η μία πάνω στην άλλη
 
 // Σύνθετες εικόνες χρησιμοποιώντας σύνταξη με κλήσεις μεθόδων:
 val i: Image = imageA.beside(imageB)
