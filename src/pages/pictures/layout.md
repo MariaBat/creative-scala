@@ -1,4 +1,4 @@
-## Διάταξη Σχημάτων
+## Διάταξη
 
 ```tut:invisible
 import doodle.core._
