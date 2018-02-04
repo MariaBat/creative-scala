@@ -131,7 +131,7 @@ Color.hsl(0.degrees, 0.8.normalized, 0.6.normalized) // Ένα παστέλ κό
 
 Δημιουργήστε τρία τρίγωνα, διατεταγμένα μέσα σε ένα τρίγωνο, έτσι ώστε να έχουν χρώματα παρόμοιας απόχρωσης (hue). Δείτε ένα (αρκετά περίπλοκο) παράδειγμα στην εικόνα [@fig:pictures:complementary-triangles].
 
-![Χρωματικός συνδυασμός τριγώνων. Τα χρώματα που επιλέχθηκαν είναι παραλλαγές του χρώματος `darkSlateBlue`](./src/pages/pictures/complementary-triangles.pdf+svg){#fig:pictures:complementary-triangles}
+![Συμπληρωματικά τρίγωνα. Τα χρώματα που επιλέχθηκαν είναι παραλλαγές του `darkSlateBlue`](./src/pages/pictures/complementary-triangles.pdf+svg){#fig:pictures:complementary-triangles}
 
 <div class="solution">
 Τα παραδείγματα γίνονται αρκετά μεγάλα για να τα γράφουμε στην κονσόλα. Αργότερα θα δούμε έναν διαφορετικό τρόπο.
