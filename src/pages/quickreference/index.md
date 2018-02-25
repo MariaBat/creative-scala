@@ -132,7 +132,7 @@ doTwice(1, num => num * 10)
 ### Imports
 
 ~~~ scala
-// Μ'αυτά τα imports μπορείτε να κάνετε τα πάντα:
+// Μ' αυτά τα imports μπορείτε να κάνετε τα πάντα:
 import doodle.core._
 import doodle.syntax._
 ~~~

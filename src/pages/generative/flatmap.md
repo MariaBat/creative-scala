@@ -100,7 +100,7 @@ randomCircle(size, randomPastel).map2(randomConcentricCircles(n-1, size + 5)){
 ```
 
 Πιθανόν να χρειαζόμασταν και `map3`, `map4`, και ούτω καθεξής.
-Αντί γι'αυτές τις ειδικές περιπτώσεις, μπορούμε να χρησιμοποιήσουμε την `flatMap` σε συνδυασμό με την `map`.
+Αντί γι' αυτές τις ειδικές περιπτώσεις, μπορούμε να χρησιμοποιήσουμε την `flatMap` σε συνδυασμό με την `map`.
 
 ```scala
 randomCircle(size, randomPastel) flatMap { circle =>
