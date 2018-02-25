@@ -9,7 +9,7 @@ import doodle.backend.StandardInterpreter._
 ```
 
 <div class="callout callout-info">
-Εκτός από τα imports που δίνονται στην αρχή κάθε κεφαλαίου, σ'αυτή την ενότητα θα προσθέσουμε και τα παρακάτω:
+Εκτός από τα imports που δίνονται στην αρχή κάθε κεφαλαίου, σ' αυτή την ενότητα θα προσθέσουμε και τα παρακάτω:
 
 ```tut:silent
 import doodle.turtle._
