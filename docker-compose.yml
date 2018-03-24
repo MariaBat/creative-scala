@@ -3,4 +3,5 @@ services:
   book:
     image: underscoreio/book:latest
     volumes:
-     - .:/source
+      - .:/source
+      - ~/.ivy2:/root/.ivy2
