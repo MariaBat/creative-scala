@@ -154,13 +154,13 @@ val i: Image = imageA under  imageB // η μία πάνω στην άλλη
 
 // Σύνθετες εικόνες χρησιμοποιώντας σύνταξη με κλήσεις μεθόδων:
 val i: Image = imageA.beside(imageB)
-// etc...
+// κλπ...
 ~~~
 
 ### Μορφοποίηση Εικόνων
 
 ~~~ scala
-// Μορφοποίηση εικόνων με συντακτικό operators:
+// Μορφοποίηση εικόνων με operators:
 val i: Image = image fillColor color   // νέο χρώμα γεμίσματος (δεν γίνεται αλλαγή γραμμής)
 val i: Image = image lineColor color   // νέο χρώμα γραμμής (δεν αλλάζει το χρώμα γεμίσματος)
 val i: Image = image lineWidth integer // νέο πλάτος γραμμής (δεν αλλάζει το χρώμα γεμίσματος)
@@ -169,7 +169,7 @@ val i: Image = image fillColor color lineColor otherColor // νέο χρώμα �
 // Μορφοποίηση εικόνων με κλήση μεθόδων:
 val i: Image = imageA.fillColor(color)
 val i: Image = imageA.fillColor(color).lineColor(otherColor)
-// etc...
+// κλπ...
 ~~~
 
 ### Χρώματα
@@ -194,7 +194,7 @@ val c: Color = someColor fadeOut    0.1.normalized // αλλαγή αδιαφά�
 // Μετατροπή/μίξη χρωμάτων χρησιμοποιώντας κλήσεις μεθόδων:
 val c: Color = someColor.spin(10.degrees)
 val c: Color = someColor.lighten(0.1.normalized)
-// etc...
+// κλπ...
 ~~~
 
 ### Μονοπάτια
@@ -206,7 +206,7 @@ val i: Image = OpenPath(List(
   LineTo(Vec(10, 10).toPoint)
 ))
 
-// Δημιουργία μονοπατιού από άλλη σειρά από PathElements:
+// Δημιουργία μονοπατιού από άλλη σειρά PathElements:
 val i: Image = OpenPath(
   (0 until 360 by 30) map { i =>
     LineTo(Vec.polar(i.degrees, 100).toPoint)
@@ -237,8 +237,8 @@ val v: Vec = Vec.unitY                   // διάνυσμα μονάδα για
 val v: Vec = Vec(3, 4)                   // διάνυσμα καρτεσιανών συντεταγμένων
 val v: Vec = Vec.polar(30.degrees, 5)    // διάνυσμα πολικών συντεταγμένων
 val v: Vec = Vec(2, 1) * 10              // πολλαπλασιασμός μήκους
-val v: Vec = Vec(20, 10) / 10            // σιαίρεση μήκους
-val v: Vec = Vec(2, 1) + Vec(1, 3)       // πρόσθεση σιανυσμάτων
+val v: Vec = Vec(20, 10) / 10            // διαίρεση μήκους
+val v: Vec = Vec(2, 1) + Vec(1, 3)       // πρόσθεση διανυσμάτων
 val v: Vec = Vec(5, 5) - Vec(2, 1)       // αφαίρεση διανυσμάτων
 val v: Vec = Vec(5, 5) rotate 45.degrees // περιστροφή αντίθετα από την φορά του ρολογιού
 
