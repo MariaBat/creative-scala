@@ -206,7 +206,7 @@ val i: Image = OpenPath(List(
   LineTo(Vec(10, 10).toPoint)
 ))
 
-// Δημιουργία μονοπατιού από άλλη σειρά PathElements:
+// Δημιουργία μονοπατιού από ακολουθία PathElements:
 val i: Image = OpenPath(
   (0 until 360 by 30) map { i =>
     LineTo(Vec.polar(i.degrees, 100).toPoint)
