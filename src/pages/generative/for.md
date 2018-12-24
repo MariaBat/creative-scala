@@ -1,4 +1,4 @@
-## For Comprehensions
+## For Comprehension
 
 ```tut:invisible
 import doodle.core._
@@ -9,16 +9,16 @@ import doodle.backend.StandardInterpreter._
 ```
 
 <div class="callout callout-info">
-In addition to the standard imports given at the start of the chapter, in this section we're assuming the following:
+Σε αυτήν την ενότητα, εκτός από τα imports που δίνονται στην αρχή του κεφαλαίου, χρειαζόμαστε και το παρακάτω:
 
 ```tut:silent
 import doodle.random._
 ```
 </div>
 
-Scala provides some special syntax, called a *for comprehension*, that makes it simpler to write long sequences of `flatMap` and `map`.
+Στην Scala, υπάρχει μία ειδική σύνταξη που ονομάζεται *for comprehension*, η οποία μας επιτρέπει να γράψουμε απλούστερα τις εκφράσεις που περιέχουν μεθόδους όπως η `map` και η `flatMap`.
 
-For example, the code for `randomConcentricCircles` has a call to `flatMap` and `map`.
+Για παράδειγμα, ο κώδικας της `randomConcentricCircles` καλεί την `map` και την `flatMap`.
 
 ```tut:silent:invisible
 def randomAngle: Random[Angle] =
@@ -46,7 +46,7 @@ def randomConcentricCircles(count: Int, size: Int): Random[Image] =
   }
 ```
 
-This can be replaced with a for comprehension.
+Αυτό μπορεί να αντικατασταθεί από μία for comprehension.
 
 ```tut:silent:book
 def randomConcentricCircles(count: Int, size: Int): Random[Image] =
@@ -60,9 +60,9 @@ def randomConcentricCircles(count: Int, size: Int): Random[Image] =
   }
 ```
 
-The for comprehension is often easier to read than direct use of `flatMap` and `map`.
+Συνήθως, το for comprehension είναι πιο ευανάγνωστο από την `map` και την `flatMap`.
 
-A general for comprehension
+Γενικά, το for comprehension
 
 ```tut:book:invisible
 val a: Seq[Int] = Seq.empty
@@ -79,19 +79,18 @@ for {
 } yield e
 ```
 
-translates to:
+μεταφράζεται σε:
 
 ```tut:book:silent
 a.flatMap(x => b.flatMap(y => c.map(z => e)))
 ```
 
-Which is to say that every `<-`, except the last, turns into a `flatMap`, and the last `<-` becomes a `map`.
+Δηλαδή κάθε `<-`, εκτός από το τελευταίο, μετατρέπεται σε `flatMap`, ενώ το τελευταίο `<-` μετατρέπεται σε `map`.
 
-For comprehensions are translated by the compiler into uses of `flatMap` and `map`.
-There is no magic going on. 
-It is just a different way of writing code that would use `flatMap` and `map` that avoids excessive nesting.
+Ο μεταγλωττιστής μεταφράζει το for comprehensions σε `flatMap` και `map`.
+Δεν συμβαίνει τίποτα μαγικό!
+Έχουμε απλά έναν διαφορετικό τρόπο σύνταξης ο οποίος αποφεύγει βαθιές εμφωλευμένες εκφράσεις.
 
-Note that the for comprehension syntax is more flexible than what we have presented here.
-For example, you can drop the `yield` keyword from a for comprehension and the code will still compile.
-It just won't return a result.
-We're not going to use any of these extensions in Creative Scala, however.
+Σημειώστε ότι η σύνταξη του for comprehension είναι πιο ευέλικτη από όσα έχουμε παρουσιάσει.
+Για παράδειγμα, αν παραλείψετε το `yield`, ο κώδικα θα μεταγλωττιστεί.
+Δεν θα επιστρέψει όμως κάποιο αποτέλεσμα.
