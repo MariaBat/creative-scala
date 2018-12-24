@@ -175,13 +175,12 @@ val answer =
    concentricShapes(10, rainbowSquare))
 ```
 
-Όμως, υπάρχουν κάποια περιττά στοιχεία εδώ:
+Όμως, εδώ υπάρχουν κάποια περιττά στοιχεία:
 συγκεκριμένα το `rainbowCircle` και το `rainbowTriangle`,
 χρησιμοποιούν τον ίδιο ορισμό για το `color`.
 Υπάρχουν επίσης επαναλαμβανόμενες κλήσεις του `lineWidth(10)` και του
 `lineColor(color)` οι οποίες μπορούν να εξαλειφθούν.
-Στην άσκηση για παραπάνω εξάσκηση, αυτά τα δύο γίνονται διαφορετικές συναρτήσεις
-και συνδέονται με το `colored`:
+Αυτά τα δύο υλοποιούνται στην `colored`:
 
 ```tut:book
 def concentricShapes(count: Int, singleShape: Int => Image): Image =

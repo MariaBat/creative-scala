@@ -166,7 +166,7 @@ def walk(steps: Int): Random[Image] =
 <div class="solution">
 Στον ορισμό μας για την `render`, δείξαμε πώς μπορούμε να χρησιμοποιήσουμε πληροφορίες από το σημείο ώστε να αλλάξουμε το σχήμα με ενδιαφέρον τρόπο.
 
-Ο ορισμός της `walk` είναι μία δομημένη αναδρομή με φυσικούς αριθμούς με έναν εσωτερικό συσσωρευτή και με αναδρομή στην `flatMap`.
+Ο ορισμός της `walk` είναι μία δομημένη αναδρομή με φυσικούς αριθμούς και έναν εσωτερικό συσσωρευτή και την `flatMap`.
 
 ```tut:silent:book
 def render(point: Point): Image = {
@@ -212,8 +212,8 @@ def particleSystem(particles: Int, steps: Int): Random[Image] =
 
 <div class="solution">
 Για άλλη μία φορά έχουμε δομημένη αναδρομή με φυσικούς αριθμούς.
-Αντίθετα από ότι στην `walk`, η αναδρομή γίνεται στην `map` και όχι στην `flatMap`.
-Αυτό γίνεται επειδή η `particleSystem` δεν προσθέτει νέες τυχαίες επιλογές.
+Σε αντίθεση με την `walk`, η αναδρομή γίνεται στην `map` και όχι στην `flatMap`.
+Αυτό συμβαίνει επειδή η `particleSystem` δεν προσθέτει νέες τυχαίες επιλογές.
 
 ```tut:silent:book
 def particleSystem(particles: Int, steps: Int): Random[Image] = {
