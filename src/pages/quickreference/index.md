@@ -30,7 +30,7 @@ true || false // logical OR
 1 + 2     // infix operator
 1 + 2 + 3 // ισοδύναμο με το 1.+(2).+(3)
 
-// Υποθετικά:
+// Υποθετικές εκφράσεις:
 if(booleanExpression) expressionA else expressionB
 
 // Blocks:
@@ -76,7 +76,7 @@ methodName
 
 ## Συναρτήσεις και Τιμές
 
-Οι συναρτήσεις ως τιμές γράφονται έτσι `(argName: ArgType, ...) => resultExpression`:
+Οι συναρτήσεις ως τιμές, γράφονται έτσι `(argName: ArgType, ...) => resultExpression`:
 
 ~~~ scala
 val double = (num: Int) => num * 2
@@ -100,8 +100,8 @@ scala> printAndDouble(10)
 // res0: Int = 20
 ~~~
 
-Πρέπει να γράφουμε και τους τύπους των συναρτήσεων όταν δηλώνουμε παραμέτρους και τύπους αποτελέσμάτων.
-Η σύνταξη είναι αυτή: `ArgType => ResultType` or `(ArgType, ...) => ResultType`:
+Πρέπει να γράφουμε τους τύπους των συναρτήσεων των παραμέτρων και των αποτελεσμάτων.
+Η σύνταξη είναι αυτή: `ArgType => ResultType` ή `(ArgType, ...) => ResultType`:
 
 ~~~ scala
 def doTwice(value: Int, func: Int => Int): Int =
@@ -149,8 +149,8 @@ val i: Image = Triangle(width, height)
 val i: Image = imageA beside imageB // οριζόντια διάταξη
 val i: Image = imageA above  imageB // κάθετη διάταξη
 val i: Image = imageA below  imageB // κάθετη διάταξη
-val i: Image = imageA on     imageB // η μία πάνω στην άλλη
-val i: Image = imageA under  imageB // η μία πάνω στην άλλη
+val i: Image = imageA on     imageB // η μία πάνω από την άλλη
+val i: Image = imageA under  imageB // η μία κάτω από την άλλη
 
 // Σύνθετες εικόνες χρησιμοποιώντας σύνταξη με κλήσεις μεθόδων:
 val i: Image = imageA.beside(imageB)
@@ -225,10 +225,10 @@ val e3: PathElement = BezierCurveTo(cp1Vec.toPoint, cp2Vec.toPoint, toVec.toPoin
 ### Γωνίες και Διανύσματα
 
 ~~~ scala
-val a: Angle = 30.degrees                //γωνία σε μοίρες
+val a: Angle = 30.degrees                // γωνία σε μοίρες
 val a: Angle = 1.5.radians               // γωνία σε ακτίνια
 val a: Angle = math.Pi.radians           // ακτίνια π
-val a: Angle = 1.turns                   // γωνία σε πλήρης περιστροφές
+val a: Angle = 1.turns                   // γωνία σε πλήρη περιστροφή
 
 val v: Vec = Vec.zero                    // μηδενικό διάνυσμα (0,0)
 val v: Vec = Vec.unitX                   // διάνυσμα μονάδα για την x (1,0)
@@ -244,6 +244,6 @@ val v: Vec = Vec(5, 5) rotate 45.degrees // περιστροφή αντίθετ�
 
 val x: Double = Vec(3, 4).x              // συντεταγμένη x
 val y: Double = Vec(3, 4).y              // συντεταγμένη y
-val a: Angle  = Vec(3, 4).angle          // αντίθετα από την φορά του ρολογιού από το (1, 0)
+val a: Angle  = Vec(3, 4).angle          // γωνία που σχηματίζεται με το διάνυσμα (1, 0)
 val l: Double = Vec(3, 4).length         // μήκος
 ~~~
