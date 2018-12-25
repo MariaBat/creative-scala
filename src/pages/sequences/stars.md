@@ -86,7 +86,7 @@ allBeside(
 ![Αστέρια με `p=3 to 33 by 2` και `n=1 to p/2`](src/pages/sequences/all-star.pdf+svg){#fig:sequences:all-star}
 
 <div class="solution">
-Για την δημιουργία της εικόνας [@fig:sequences:stars2], ξεκινήσαμε φτιάχνοντας μία μέθοδο για την μορφή των αστεριών.
+Για την δημιουργία της εικόνας [@fig:sequences:stars], ξεκινήσαμε φτιάχνοντας μία μέθοδο για την μορφή των αστεριών.
 
 ```tut:silent:book
 def style(img: Image, hue: Angle): Image = {
