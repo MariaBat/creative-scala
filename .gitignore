@@ -9,6 +9,7 @@ Thumbs.db
 .rbenv-version
 .rvmrc
 /dist/
+/node_modules/
 .ivy2/
 .sbtopts
 target/
