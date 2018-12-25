@@ -40,4 +40,4 @@
 4. Βεβαιωθείτε ότι έχετε το επιθυμητό αποτέλεσμα, ελέγχοντας τα αρχεία `dist/creative-scala.epub` και `dist/creative-scala.html`
 5. Κάντε pull request στο branch **contribution**
 
-Για να συνεισφέρεται στην αγγλική έκδοση του βιβλίου, επισκεφθείτε το GitHub repository [mrdimosthenis/creative-scala](https://github.com/underscoreio/creative-scala)
+Για να συνεισφέρετε στην αγγλική έκδοση του βιβλίου, επισκεφθείτε το GitHub repository [mrdimosthenis/creative-scala](https://github.com/underscoreio/creative-scala)
