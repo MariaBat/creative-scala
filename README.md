@@ -10,8 +10,8 @@
 3. Να τα παρουσιάσουμε όλα αυτά με διασκεδαστικό, ήπιο και ενδιαφέρον τρόπο, μέσω δισδιάστατων γραφικών
 
 **Κατεβάστε** το βιβλίο στα links που υπάρχουν παρακάτω, κάνοντας δεξί click στο κουμπί *Download* και επιλέγοντας *Save link as...*
-* [epub](creative-scala/dist/creative-scala.epub)
-* [html](creative-scala/dist/creative-scala.html)
+* [epub](dist/creative-scala.epub)
+* [html](dist/creative-scala.html)
 
 ## Συγγραφή
 
