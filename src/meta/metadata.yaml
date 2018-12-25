@@ -1,9 +1,9 @@
 ---
 # Used by Pandoc to print covers:
 title: "Creative Scala"
-author: "Dave Gurnell and Noel Welsh"
+author: "Dave Gurnell και Noel Welsh"
 license: "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
-date: "February 2017"
+date: "Φεβρουάριος 2017"
 copyright: "2015-2017"
 # Used by Pandoc to generate the PDF cover...
 # see src/css/book.css for HTML/ePub covers:
