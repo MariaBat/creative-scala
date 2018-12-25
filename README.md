@@ -1,47 +1,43 @@
 # Creative Scala
 
-Written by [Dave Gurnell](http://twitter.com/davegurnell) and
-[Noel Welsh](http://twitter.com/noelwelsh).
-Copyright [Underscore Consulting LLP](http://underscore.io), 2015--2017.
+Εξοικειωθείτε με τον συναρτησιακό προγραμματισμό χρησιμοποιώντας εικόνες! Μία διασκεδαστική και πρακτική εισαγωγή για τους νέους προγραμματιστές.
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+Το **βιβλίο Creative Scala** απευθύνεται σε προγραμματιστές που δεν έχουν προηγούμενη εμπειρία με την Scala. Υποθέτουμε ότι είστε εξοικειωμένοι με κάποια άλλη γλώσσα προγραμματισμού αλλά έχετε λίγη ή καθόλου εμπειρία με την Scala ή άλλες γλώσσες συναρτησιακού προγραμματισμού.
 
-## Overview
+Σε αυτό το βιβλίο θέσαμε 3 στόχους:
+1. Να γνωρίσετε και να εξοικειωθείτε με τον συναρτησιακό προγραμματισμό, να μπορείτε να φτιάξετε προγράμματα αλλά και να είστε σε θέση να καταλάβετε και άλλα σχετικά εισαγωγικά βιβλία
+2. Να σας διδάξουμε αρκετή Scala ώστε να μπορέσετε να εξερευνήσετε και δικά σας ενδιαφέροντα χρησιμοποιώντας την
+3. Να τα παρουσιάσουμε όλα αυτά με διασκεδαστικό, ήπιο και ενδιαφέρον τρόπο, μέσω δισδιάστατων γραφικών
 
-Creative Scala is a free ebook aimed at developers
-who have no prior experience in Scala.
-It is designed to give you a vital first taste of functional programming.
-We assume you have some familiarity with another programming language
-but little or no experience with Scala or other functional languages.
+**Κατεβάστε** το βιβλίο στα links που υπάρχουν παρακάτω, κάνοντας δεξί click στο κουμπί *Download* και επιλέγοντας *Save link as...*
+* [epub](creative-scala/dist/creative-scala.epub)
+* [html](creative-scala/dist/creative-scala.html)
 
-This is version 2 of Creative Scala, which is still in development. 
-See the `master` branch for the first version.
+## Συγγραφή
 
-Our goal is to demonstrate the building blocks that Scala developers use
-to create programs in a clear, succinct, declarative manner.
-Working through the exercises in the book should take two to three hours,
-after which we hope you will have a feel of what Scala can do for your applications.
+* Dave Gurnell: dave@underscore.io
+* Noel Welsh: noel@underscore.io
 
-The exercises in Creative Scala are based on
-a functional graphics library called [Doodle][doodle].
-Although Doodle is primarily designed to make programming fun and creative,
-it is based on universal concepts that can be applied to any business application.
+## Μετάφραση
 
-## Building
+* [Μαρία Μπάτσου](https://www.linkedin.com/in/maria-batsou/): mbatsou@gmail.com
 
-Creative Scala uses [Underscore's ebook build system][ebook-template].
+## Επιμέλεια Μετάφρασης
 
-The simplest way to build the book is to use [Docker Compose](http://docker.com):
+* [Δημοσθένης Μιχαηλίδης](https://www.linkedin.com/in/mrdimosthenis/): mrdimosthenis@hotmail.com
 
-- install Docker Compose (`brew install docker-compose` on OS X; or download from [docker.com](http://docker.com/)); and
-- run `go.sh` (or `docker-compose run book bash` if `go.sh` doesn't work).
+## Συνεισφορά
 
-This will open a `bash` shell running inside the Docker container which contains all the dependencies to build the book. From the shell run:
+Για να συνεισφέρετε διορθώνοντας, βελτιώνοντας ή ενημερώνοντας το περιεχόμενο της μεταφρασμένης έκδοσης:
+1. Κάντε fork το GitHub repository [mrdimosthenis/creative-scala](https://github.com/mrdimosthenis/creative-scala)
+2. Πραγματοποιήστε τις αλλαγές στο δικό σας repository
+3. Δημιουργήστε την τελική μορφή του βιβλίου εκτελώντας τις παρακάτω εντολές
+   * `bash go.sh` ή `docker-compose run book bash`
+   * `npm install`
+   * `sbt`
+   * `epub`
+   * `html`
+4. Βεβαιωθείτε ότι έχετε το επιθυμητό αποτέλεσμα, ελέγχοντας τα αρχεία `dist/creative-scala.epub` και `dist/creative-scala.html`
+5. Κάντε pull request στο branch **contribution**
 
-- `npm install`; and then
-- `sbt`.
-
-Within `sbt` you can issue the commands `pdf`, `html`, `epub`, or `all` to build the desired version(s) of the book. Targets are placed in the `dist` directory:
-
-[doodle]: https://github.com/underscoreio/doodle
-[ebook-template]: https://github.com/underscoreio/underscore-ebook-template
+Για να συνεισφέρεται στην αγγλική έκδοση του βιβλίου, επισκεφθείτε το GitHub repository [mrdimosthenis/creative-scala](https://github.com/underscoreio/creative-scala)
