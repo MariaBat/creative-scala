@@ -1,6 +1,6 @@
 # Creative Scala
 
-Εξοικειωθείτε με τον συναρτησιακό προγραμματισμό χρησιμοποιώντας εικόνες! Μία διασκεδαστική και πρακτική εισαγωγή για τους νέους προγραμματιστές.
+Εξοικειωθείτε με τον συναρτησιακό προγραμματισμό χρησιμοποιώντας εικόνες! Μία πρακτική και διασκεδαστική εισαγωγή για τους νέους προγραμματιστές.
 
 Το **βιβλίο Creative Scala** απευθύνεται σε προγραμματιστές που δεν έχουν προηγούμενη εμπειρία με την Scala. Υποθέτουμε ότι είστε εξοικειωμένοι με κάποια άλλη γλώσσα προγραμματισμού αλλά έχετε λίγη ή καθόλου εμπειρία με την Scala ή άλλες γλώσσες συναρτησιακού προγραμματισμού.
 
@@ -12,6 +12,7 @@
 **Κατεβάστε** το βιβλίο στα links που υπάρχουν παρακάτω, κάνοντας δεξί click στο κουμπί *Download* και επιλέγοντας *Save link as...*
 * [epub](dist/creative-scala.epub)
 * [html](dist/creative-scala.html)
+* [pdf](dist/creative-scala.pdf)
 
 ## Συγγραφή
 
@@ -38,6 +39,7 @@
    * `epub`
    * `html`
 4. Βεβαιωθείτε ότι έχετε το επιθυμητό αποτέλεσμα, ελέγχοντας τα αρχεία `dist/creative-scala.epub` και `dist/creative-scala.html`
-5. Κάντε pull request στο branch **contribution**
+5. Δημιουργήστε το `dist/creative-scala.pdf` μετατρέποντας το αρχείο `dist/creative-scala.epub` με έναν *epub-to-pdf-converter*
+6. Κάντε pull request στο branch **contribution**
 
 Για να συνεισφέρετε στην αγγλική έκδοση του βιβλίου, επισκεφθείτε το GitHub repository [mrdimosthenis/creative-scala](https://github.com/underscoreio/creative-scala)
