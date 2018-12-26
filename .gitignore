@@ -19,3 +19,4 @@ target/
 !/dist/creative-scala.html
 !/node_modules/underscore-ebook-template/lib/templates/cover-notes.tex
 !/node_modules/underscore-ebook-template/lib/templates/cover-notes.html
+/.idea/
