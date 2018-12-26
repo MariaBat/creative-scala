@@ -17,6 +17,7 @@ target/
 *.sublime-workspace
 !/dist/creative-scala.epub
 !/dist/creative-scala.html
+!/dist/creative-scala.pdf
 !/node_modules/underscore-ebook-template/lib/templates/cover-notes.tex
 !/node_modules/underscore-ebook-template/lib/templates/cover-notes.html
 /.idea/
