@@ -2,7 +2,11 @@
 
 Εξοικειωθείτε με τον συναρτησιακό προγραμματισμό χρησιμοποιώντας εικόνες! Μία πρακτική και διασκεδαστική εισαγωγή για τους νέους προγραμματιστές.
 
-![creative scala](https://github.com/mrdimosthenis/creative-scala/raw/master/src/covers/creative_scala.png)
+<p align="center">
+  <img src="https://github.com/mrdimosthenis/creative-scala/raw/master/src/covers/creative_scala.png" width="630" height="420" />
+</p>
+
+
 
 Το **βιβλίο Creative Scala** απευθύνεται σε προγραμματιστές που δεν γνωρίζουν την Scala. Υποθέτουμε ότι είστε εξοικειωμένοι με κάποια γλώσσα προγραμματισμού αλλά έχετε λίγη ή καθόλου εμπειρία με τον συναρτησιακό προγραμματισμό.
 
